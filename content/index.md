@@ -9,7 +9,7 @@ bodyClass: home
 <p class="eyebrow">Systems, formal methods, and finance engineering</p>
 <h1 id="intro-title">Zheng Wangyuan (Patrick)</h1>
 <p class="lede">I build and verify software systems where correctness, clear models, and operational discipline matter.</p>
-<p>I believe safety goals are best achieved through a practical combination of formal and informal methods. Much of my work focuses on finding the right balance between them, and on identifying the point where exploratory engineering should transition into structured verification. I study practical failures, past attacks, and missing engineering components, then develop verification methodologies through observation and iteration.</p>
+<p>I believe safety goals are best achieved through a practical combination of formal and informal methods. Much of my work focuses on finding the right balance between them, and on identifying the point where exploratory engineering should transition into structured verification. I study practical failures, past attacks, and missing engineering components, then use those lessons to design verification methodologies that address the risks I find.</p>
 <div class="intro-actions" aria-label="Primary links">
 <a class="button" href="/projects/">View projects</a>
 <a class="button button-secondary" href="/contact/">Get in touch</a>
