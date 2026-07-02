@@ -41,7 +41,7 @@ pageCompiler =
 
 siteContext :: Context String
 siteContext =
-    constField "siteTitle" "Zhengwangyuan Patrick"
+    constField "siteTitle" "Zheng Wangyuan (Patrick)"
         <> constField "siteUrl" "https://my-site.zhengwangyuan-patrick.com"
         <> defaultContext
 

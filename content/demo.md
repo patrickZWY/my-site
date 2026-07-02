@@ -1,6 +1,6 @@
 ---
 title: Demo
-description: Live demo availability and request link for Zhengwangyuan Patrick.
+description: Live demo availability and request link for Zheng Wangyuan (Patrick).
 canonicalPath: /demo/
 bodyClass: demo
 ---

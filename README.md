@@ -1,4 +1,4 @@
-# Zhengwangyuan Patrick
+# Zheng Wangyuan (Patrick)
 
 Static personal site built with Hakyll and deployed to Cloudflare Pages.
 

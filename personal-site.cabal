@@ -4,7 +4,7 @@ version:            0.1.0.0
 build-type:         Simple
 license:            BSD-3-Clause
 license-file:       LICENSE
-author:             Zhengwangyuan Patrick
+author:             Zheng Wangyuan (Patrick)
 maintainer:         placeholder@example.com
 synopsis:           Personal website built with Hakyll
 

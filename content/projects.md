@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: Selected technical projects by Zhengwangyuan Patrick.
+description: Selected technical projects by Zheng Wangyuan (Patrick).
 canonicalPath: /projects/
 bodyClass: projects
 ---

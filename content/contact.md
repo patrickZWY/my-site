@@ -1,6 +1,6 @@
 ---
 title: Contact
-description: Contact links for Zhengwangyuan Patrick.
+description: Contact links for Zheng Wangyuan (Patrick).
 canonicalPath: /contact/
 bodyClass: contact
 ---
