@@ -23,7 +23,7 @@ The first version is profile and projects focused, not blog first. Replace the p
 
 ## Cloudflare Pages
 
-Create a Cloudflare Pages project named `zhengwangyuan-patrick`.
+Create a Cloudflare Pages project named `my-site-zhengwangyuan-patrick`.
 
 Required GitHub Actions secrets:
 
@@ -33,29 +33,25 @@ Required GitHub Actions secrets:
 The workflow in `.github/workflows/deploy.yml` builds with Stack and deploys `_site` using Wrangler:
 
 ```sh
-pages deploy _site --project-name=zhengwangyuan-patrick --branch=main
+pages deploy _site --project-name=my-site-zhengwangyuan-patrick --branch=main
 ```
 
-Attach these custom domains to the Pages project:
+Attach this custom domain to the Pages project:
 
-- `zhengwangyuan-patrick.com`
-- `www.zhengwangyuan-patrick.com`
+- `my-site.zhengwangyuan-patrick.com`
 
-Cloudflare Pages `_redirects` does not support domain-level redirects. Use Cloudflare Bulk Redirects to redirect `www.zhengwangyuan-patrick.com/*` to `https://zhengwangyuan-patrick.com/:splat` with a `301`, preserving query strings and path suffixes. Leave `demo.zhengwangyuan-patrick.com` pointed at the existing finance demo.
+Leave `demo.zhengwangyuan-patrick.com` pointed at the existing finance demo.
 
 ## Production Checks
 
 After the first deployment:
 
 ```sh
-curl --head https://zhengwangyuan-patrick.com/
-curl --head https://www.zhengwangyuan-patrick.com/
+curl --head https://my-site.zhengwangyuan-patrick.com/
 curl --head https://demo.zhengwangyuan-patrick.com/
 ```
 
 Expected results:
 
-- Apex returns `200`.
-- `www` redirects to the apex.
+- Personal site returns `200`.
 - `demo` remains unchanged.
-
