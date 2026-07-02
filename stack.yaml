@@ -1,0 +1,10 @@
+resolver: lts-22.43
+compiler: ghc-9.6.7
+system-ghc: true
+
+packages:
+  - .
+
+extra-deps:
+  - hakyll-4.17.0.0@sha256:d32b9b71b853cf14ee2b3b8aa5af76e4ae768b6d8a4126fcd0d4829dbfaee427,10604
+
