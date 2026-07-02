@@ -23,7 +23,7 @@ The first version is profile and projects focused, not blog first. Replace the p
 
 ## Cloudflare Pages
 
-Create a Cloudflare Pages project named `my-site-zhengwangyuan-patrick`.
+Create a Cloudflare Pages project named `my-site.zhengwangyuan-patrick.com`.
 
 Required GitHub Actions secrets:
 
@@ -33,7 +33,7 @@ Required GitHub Actions secrets:
 The workflow in `.github/workflows/deploy.yml` builds with Stack and deploys `_site` using Wrangler:
 
 ```sh
-pages deploy _site --project-name=my-site-zhengwangyuan-patrick --branch=main
+pages deploy _site --project-name=my-site.zhengwangyuan-patrick.com --branch=main
 ```
 
 Attach this custom domain to the Pages project:
