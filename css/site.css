@@ -306,37 +306,6 @@ p {
   font-weight: 650;
 }
 
-.two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 3rem;
-}
-
-.signal-list {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-}
-
-.signal-list div {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.signal-list dt {
-  color: var(--quiet);
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.signal-list dd {
-  margin: 0;
-  color: var(--muted);
-}
-
 .page-header {
   max-width: 820px;
   padding-bottom: 3rem;
@@ -426,7 +395,6 @@ p {
   }
 
   .project-grid,
-  .two-column,
   .project-row {
     grid-template-columns: 1fr;
   }
@@ -483,7 +451,6 @@ p {
     width: 100%;
   }
 
-  .signal-list div,
   .contact-list a {
     grid-template-columns: 1fr;
     gap: 0.3rem;

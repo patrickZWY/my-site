@@ -43,25 +43,11 @@ bodyClass: home
 </div>
 </section>
 
-<section class="section-block two-column" aria-labelledby="now-title">
+<section class="section-block" aria-labelledby="now-title">
 <div>
 <h2 id="now-title">Current Focus</h2>
 <p>Richer semantics for Finance agent, better Automated Testing
 generation and evolution, and applying Formal Methods to other
 vulnerabilities in DeFi.</p>
 </div>
-<dl class="signal-list">
-<div>
-<dt>Availability</dt>
-<dd>Placeholder for collaborations, research work, or engineering roles.</dd>
-</div>
-<div>
-<dt>Location</dt>
-<dd>Placeholder.</dd>
-</div>
-<div>
-<dt>Links</dt>
-<dd><a href="/contact/">Contact and profiles</a></dd>
-</div>
-</dl>
 </section>
