@@ -2,6 +2,7 @@ name = "demo-router"
 main = "cloudflare/demo-router-worker.js"
 compatibility_date = "2026-07-02"
 workers_dev = false
+pages_build_output_dir = "_site"
 
 routes = [
   { pattern = "demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" }
