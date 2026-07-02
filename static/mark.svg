@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lambda mark">
   <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#1f5e56" stroke-width="4"/>
-  <path d="M20 46L34 16" fill="none" stroke="#1f5e56" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M34 16L48 46" fill="none" stroke="#1f5e56" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M25 35H43" fill="none" stroke="#1f5e56" stroke-width="6" stroke-linecap="round"/>
+  <path d="M23 17C28 16 31 19 34 26L47 48" fill="none" stroke="#1f5e56" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M33 27L18 48" fill="none" stroke="#1f5e56" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
