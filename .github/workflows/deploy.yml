@@ -69,5 +69,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=my-site.zhengwangyuan-patrick.com --branch=main
+          command: pages deploy _site --project-name=my-site-zhengwangyuan-patrick --branch=main --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
