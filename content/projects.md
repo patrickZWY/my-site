@@ -14,11 +14,11 @@ bodyClass: projects
 <section class="project-list" aria-label="Project list">
 <article class="project-row">
 <div>
-<p class="project-kicker">Live demo</p>
+<p class="project-kicker">Live demo by request</p>
 <h2>TLA-Finance</h2>
-<p>Interactive finance verification demo and supporting models. This remains hosted separately at the demo subdomain.</p>
+<p>Interactive finance verification demo and supporting models. The demo runs from a local environment, so email me to schedule a live walkthrough if the demo link is unavailable.</p>
 </div>
-<a href="https://demo.zhengwangyuan-patrick.com/">demo.zhengwangyuan-patrick.com</a>
+<a href="/demo/">Request demo</a>
 </article>
 <article class="project-row">
 <div>

@@ -22,10 +22,10 @@ bodyClass: home
 </div>
 <div class="project-grid">
 <article class="project-card">
-<p class="project-kicker">TLA+</p>
+<p class="project-kicker">Live demo by request</p>
 <h3>Finance protocol models</h3>
-<p>Formal specifications and model checking experiments for trading, liquidation, and adversarial scenarios.</p>
-<a href="https://demo.zhengwangyuan-patrick.com/">Open demo</a>
+<p>Formal specifications and model checking experiments for trading, liquidation, and adversarial scenarios. The interactive demo runs from a local environment and is available by appointment.</p>
+<a href="/demo/">Request live demo</a>
 </article>
 <article class="project-card">
 <p class="project-kicker">Verification</p>
