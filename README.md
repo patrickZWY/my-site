@@ -23,17 +23,21 @@ The first version is profile and projects focused, not blog first. Replace the p
 
 ## Cloudflare Pages
 
-Create a Cloudflare Pages project named `my-site-zhengwangyuan-patrick`.
+Create or select a Cloudflare Pages project for this site. The Pages project name is the Cloudflare project slug, not the custom domain. If the default Pages URL is `example.pages.dev`, then the project name is `example`.
 
 Required GitHub Actions secrets:
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
+Required GitHub Actions repository variable:
+
+- `CLOUDFLARE_PROJECT_NAME`
+
 The workflow in `.github/workflows/deploy.yml` builds with Stack and deploys `_site` using Wrangler:
 
 ```sh
-pages deploy _site --project-name=my-site-zhengwangyuan-patrick --branch=main --commit-dirty=true
+pages deploy _site --project-name=$CLOUDFLARE_PROJECT_NAME --branch=main --commit-dirty=true
 ```
 
 Attach this custom domain to the Pages project:

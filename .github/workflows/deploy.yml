@@ -24,6 +24,7 @@ jobs:
     env:
       HAS_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
       HAS_CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+      HAS_CLOUDFLARE_PROJECT_NAME: ${{ vars.CLOUDFLARE_PROJECT_NAME != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -60,14 +61,14 @@ jobs:
           test -f _site/404.html
 
       - name: Skip Cloudflare deploy until secrets are configured
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
-        run: echo "Cloudflare deploy secrets are not configured; skipping deployment."
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true' || env.HAS_CLOUDFLARE_PROJECT_NAME != 'true')
+        run: echo "Cloudflare deploy secrets are not fully configured; skipping deployment."
 
       - name: Deploy to Cloudflare Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true' && env.HAS_CLOUDFLARE_PROJECT_NAME == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=my-site-zhengwangyuan-patrick --branch=main --commit-dirty=true
+          command: pages deploy _site --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }} --branch=main --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
