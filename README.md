@@ -58,12 +58,23 @@ The Worker template is in `cloudflare/demo-router-worker.js`. If the live app
 checks allowed hosts, include `live-demo.zhengwangyuan-patrick.com` in that
 allowlist.
 
-Deploy the Worker after the static site is deployed:
+Deploy the Worker after the static site is deployed. The existing
+`CLOUDFLARE_API_TOKEN` can deploy Pages, but Worker deployment needs a separate
+GitHub secret named `CLOUDFLARE_WORKERS_API_TOKEN` if that token does not have
+Worker permissions.
+
+Minimum token permissions for `CLOUDFLARE_WORKERS_API_TOKEN`:
+
+- Account / Workers Scripts / Edit
+- Zone / Workers Routes / Edit
+- Zone / Zone / Read
+- User / User Details / Read, optional but avoids Wrangler's user-settings
+  warning
 
 ```sh
 stack exec site rebuild
-pages deploy _site --project-name=$CLOUDFLARE_PROJECT_NAME --branch=main --commit-dirty=true
-npx wrangler deploy --config cloudflare/wrangler.toml
+pages deploy _site --project-name=my-site --branch=main --commit-dirty=true
+npx wrangler deploy --config wrangler.toml
 ```
 
 If `https://demo.zhengwangyuan-patrick.com/` still shows a Cloudflare Tunnel

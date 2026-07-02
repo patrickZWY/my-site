@@ -23,8 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HAS_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+      HAS_CLOUDFLARE_WORKERS_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN != '' }}
       HAS_CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
-      HAS_CLOUDFLARE_PROJECT_NAME: ${{ vars.CLOUDFLARE_PROJECT_NAME != '' }}
+      CLOUDFLARE_PROJECT_NAME: my-site
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -63,23 +64,27 @@ jobs:
           node --check cloudflare/demo-router-worker.js
 
       - name: Skip Cloudflare deploy until secrets are configured
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true' || env.HAS_CLOUDFLARE_PROJECT_NAME != 'true')
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
         run: echo "Cloudflare deploy secrets are not fully configured; skipping deployment."
 
       - name: Deploy to Cloudflare Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true' && env.HAS_CLOUDFLARE_PROJECT_NAME == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy _site --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }} --branch=main --commit-dirty=true
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy demo Worker to Cloudflare
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --config cloudflare/wrangler.toml
+          command: pages deploy _site --project-name=${{ env.CLOUDFLARE_PROJECT_NAME }} --branch=main --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy demo Worker to Cloudflare
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.toml
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Skip demo Worker deploy until Worker token is configured
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_WORKERS_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
+        run: echo "CLOUDFLARE_WORKERS_API_TOKEN is not configured; skipping demo Worker deployment."
