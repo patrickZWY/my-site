@@ -7,7 +7,7 @@ bodyClass: home
 
 <section class="intro" aria-labelledby="intro-title">
 <p class="eyebrow">Systems, formal methods, and finance engineering</p>
-<h1 id="intro-title">Zhengwangyuan Patrick</h1>
+<h1 id="intro-title">Zheng Wangyuan (Patrick)</h1>
 <p class="lede">I build and verify software systems where correctness, clear models, and operational discipline matter.</p>
 <div class="intro-actions" aria-label="Primary links">
 <a class="button" href="/projects/">View projects</a>
@@ -45,7 +45,9 @@ bodyClass: home
 <section class="section-block two-column" aria-labelledby="now-title">
 <div>
 <h2 id="now-title">Current Focus</h2>
-<p>Sharper executable models, better counterexample analysis, and cleaner deployment paths for technical demos.</p>
+<p>Richer semantics for Finance agent, better Automated Testing
+generation and evolution, and applying Formal Methods to other
+vulnerabilities in DeFi.</p>
 </div>
 <dl class="signal-list">
 <div>
