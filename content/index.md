@@ -28,16 +28,16 @@ bodyClass: home
 <a href="/demo/">Request live demo</a>
 </article>
 <article class="project-card">
-<p class="project-kicker">Verification</p>
-<h3>Distributed system notes</h3>
-<p>Placeholder for concise writeups on invariants, state machines, and practical model checking workflows.</p>
-<a href="/writing/">Read notes</a>
+<p class="project-kicker">Smart contract security</p>
+<h3>Methodology for Verifying Smart Contract Against Price Manipulation Attacks</h3>
+<p>How I apply model checking and program analysis to detecting AMM-style attacks and price-oracle manipulation attacks.</p>
+<a href="/projects/">Browse methodology</a>
 </article>
 <article class="project-card">
-<p class="project-kicker">Engineering</p>
-<h3>Research prototypes</h3>
-<p>Placeholder for small tools and experiments that connect formal reasoning with production constraints.</p>
-<a href="/projects/">Browse</a>
+<p class="project-kicker">Automated testing</p>
+<h3>Automated Testing Framework with Soufflé</h3>
+<p>An automated testing framework I developed in SPS-VeriSpec, using Soufflé-based analysis to connect specifications with generated checks.</p>
+<a href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
 </article>
 </div>
 </section>

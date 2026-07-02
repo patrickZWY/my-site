@@ -8,7 +8,7 @@ bodyClass: projects
 <section class="page-header" aria-labelledby="projects-title">
 <p class="eyebrow">Selected work</p>
 <h1 id="projects-title">Projects</h1>
-<p class="lede">A small index of formal methods, finance, and systems work. Replace the placeholders as projects mature.</p>
+<p class="lede">A small index of formal methods, finance verification, smart-contract security, and automated testing work.</p>
 </section>
 
 <section class="project-list" aria-label="Project list">
@@ -22,18 +22,18 @@ bodyClass: projects
 </article>
 <article class="project-row">
 <div>
-<p class="project-kicker">Formal methods</p>
-<h2>Protocol model archive</h2>
-<p>Placeholder for TLA+ specs, TLC runs, state exploration notes, and attack model summaries.</p>
+<p class="project-kicker">Smart contract security</p>
+<h2>Methodology for Verifying Smart Contract Against Price Manipulation Attacks</h2>
+<p>How I apply model checking and program analysis to detecting AMM-style attacks and price-oracle manipulation attacks.</p>
 </div>
 <a href="/contact/">Request details</a>
 </article>
 <article class="project-row">
 <div>
-<p class="project-kicker">Systems</p>
-<h2>Engineering notebook</h2>
-<p>Placeholder for concise technical notes on deployment, observability, tooling, and reproducible experiments.</p>
+<p class="project-kicker">Automated testing</p>
+<h2>Automated Testing Framework with Soufflé</h2>
+<p>An automated testing framework I developed in SPS-VeriSpec, using Soufflé-based analysis to connect specifications with generated checks.</p>
 </div>
-<a href="/writing/">Writing index</a>
+<a href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
 </article>
 </section>
