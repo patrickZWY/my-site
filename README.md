@@ -49,16 +49,19 @@ the live-demo frontdoor hostnames:
 
 - `demo.zhengwangyuan-patrick.com` routes to the Worker.
 - `live-demo.zhengwangyuan-patrick.com` routes to the local `cloudflared`
-  tunnel when the walkthrough is running.
+  `tla-finance-demo` tunnel when the TLA-Finance walkthrough is running.
 - `sps-demo.zhengwangyuan-patrick.com` routes to the same Worker.
 - `live-sps-demo.zhengwangyuan-patrick.com` routes to the local SPS-VeriSpec
-  workbench service when the walkthrough is running.
+  workbench service through the separate `sps-verispec-demo` tunnel when the
+  SPS walkthrough is running.
 - The Worker proxies to `live-demo` when it is reachable and returns a clear
   `503` offline page when the selected local app is unavailable. This avoids
   exposing a raw Cloudflare 530 page to visitors.
 
 The Worker template is in `cloudflare/demo-router-worker.js`. If a live app
 checks allowed hosts, include its `live-*` tunnel hostname in that allowlist.
+Keep TLA-Finance and SPS-VeriSpec on separate named tunnels; reusing one tunnel
+for both services can make a frontdoor show the wrong local app.
 
 Deploy the Worker after the static site is deployed. The existing
 `CLOUDFLARE_API_TOKEN` can deploy Pages, but Worker deployment needs a separate
@@ -101,6 +104,8 @@ curl --head https://live-sps-demo.zhengwangyuan-patrick.com/
   tunnel, or the Worker route is not deployed.
 - `live-demo` failing DNS means the tunnel hostname has not been created yet.
 - `sps-demo` uses the same Worker pattern for the SPS-VeriSpec Agent Workbench.
+- `live-sps-demo` should route through the `sps-verispec-demo` tunnel, not the
+  `tla-finance-demo` tunnel.
 
 ## Production Checks
 
