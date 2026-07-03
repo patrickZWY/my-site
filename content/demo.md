@@ -25,9 +25,9 @@ bodyClass: demo
 <div>
 <p class="project-kicker">Automated testing</p>
 <h2>SPS-VeriSpec Agent Workbench</h2>
-<p>Browser workbench for source facts, Soufflé relations, generated test families, validation results, and review-only findings.</p>
+<p>Browser workbench for source facts, Soufflé relations, generated test families, validation results, and review-only findings. The local app is ready, and the public SPS frontdoor is pending DNS/tunnel provisioning.</p>
 </div>
-<a href="https://sps-demo.zhengwangyuan-patrick.com/">Open frontdoor</a>
+<a href="mailto:zhengwangyuan.icarus@gmail.com?subject=SPS-VeriSpec%20demo%20request">Request walkthrough</a>
 </article>
 </section>
 
