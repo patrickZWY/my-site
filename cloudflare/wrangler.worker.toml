@@ -5,5 +5,6 @@ workers_dev = false
 
 routes = [
   { pattern = "demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" },
-  { pattern = "sps-demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" }
+  { pattern = "sps-demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" },
+  { pattern = "archipelago-demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" }
 ]

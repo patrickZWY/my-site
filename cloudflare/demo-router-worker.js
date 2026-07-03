@@ -11,6 +11,11 @@ const DEMOS = {
     liveOrigin: "https://live-sps-demo.zhengwangyuan-patrick.com",
     subject: "SPS-VeriSpec demo request",
   },
+  "archipelago-demo.zhengwangyuan-patrick.com": {
+    name: "Archipelago",
+    liveOrigin: "https://live-archipelago-demo.zhengwangyuan-patrick.com",
+    subject: "Archipelago demo request",
+  },
 };
 
 export default {

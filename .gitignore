@@ -1,5 +1,6 @@
 .stack-work/
 .stack-root/
+.wrangler/
 _cache/
 _site/
 dist-newstyle/

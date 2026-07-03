@@ -52,14 +52,19 @@ the live-demo frontdoor hostnames:
 - `live-sps-demo.zhengwangyuan-patrick.com` routes to the local SPS-VeriSpec
   workbench service through the separate `sps-verispec-demo` tunnel when the
   SPS walkthrough is running.
+- `archipelago-demo.zhengwangyuan-patrick.com` routes to the same Worker.
+- `live-archipelago-demo.zhengwangyuan-patrick.com` routes to the local
+  Archipelago Spring Boot demo through the separate `archipelago-demo` tunnel
+  when the fun demo is running.
 - The Worker proxies to `live-demo` when it is reachable and returns a clear
   `503` offline page when the selected local app is unavailable. This avoids
   exposing a raw Cloudflare 530 page to visitors.
 
 The Worker template is in `cloudflare/demo-router-worker.js`. If a live app
 checks allowed hosts, include its `live-*` tunnel hostname in that allowlist.
-Keep TLA-Finance and SPS-VeriSpec on separate named tunnels; reusing one tunnel
-for both services can make a frontdoor show the wrong local app.
+Keep TLA-Finance, SPS-VeriSpec, and Archipelago on separate named tunnels;
+reusing one tunnel for multiple services can make a frontdoor show the wrong
+local app.
 
 Deploy the Worker after the static site is deployed. The existing
 `CLOUDFLARE_API_TOKEN` can deploy Pages, but Worker deployment needs a separate
@@ -94,6 +99,8 @@ curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://live-demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
 curl --head https://live-sps-demo.zhengwangyuan-patrick.com/
+curl --head https://archipelago-demo.zhengwangyuan-patrick.com/
+curl --head https://live-archipelago-demo.zhengwangyuan-patrick.com/
 ```
 
 - `/demo/` returning `404` means the personal site has not been redeployed since
@@ -104,6 +111,13 @@ curl --head https://live-sps-demo.zhengwangyuan-patrick.com/
 - `sps-demo` uses the same Worker pattern for the SPS-VeriSpec Agent Workbench.
 - `live-sps-demo` should route through the `sps-verispec-demo` tunnel, not the
   `tla-finance-demo` tunnel.
+- `archipelago-demo` uses the same Worker pattern for the Archipelago fun demo.
+- `live-archipelago-demo` should route through the `archipelago-demo` tunnel and
+  can optionally be protected by a by-request Cloudflare Access policy. Without
+  Access, Archipelago is public while the local app and tunnel are running.
+
+For the exact runbook and the fixes from the first Archipelago demo bring-up,
+see `docs/archipelago-demo-bugs-and-fixes.md`.
 
 ## Production Checks
 
@@ -113,12 +127,13 @@ After the first deployment:
 curl --head https://my-site.zhengwangyuan-patrick.com/
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
+curl --head https://archipelago-demo.zhengwangyuan-patrick.com/
 ```
 
 Expected results:
 
 - Personal site returns `200`.
-- `demo` and `sps-demo` return their live apps when the matching tunnel is
-  running.
-- `demo` and `sps-demo` return clear `503` offline pages when the local apps are
-  not intentionally live.
+- `demo`, `sps-demo`, and `archipelago-demo` return their live apps when the
+  matching tunnel is running.
+- `demo`, `sps-demo`, and `archipelago-demo` return clear `503` offline pages
+  when the local apps are not intentionally live.
