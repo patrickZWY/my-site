@@ -45,18 +45,20 @@ Attach this custom domain to the Pages project:
 - `my-site.zhengwangyuan-patrick.com`
 
 For a durable demo reminder, put a Cloudflare Worker in front of
-`demo.zhengwangyuan-patrick.com`:
+the live-demo frontdoor hostnames:
 
 - `demo.zhengwangyuan-patrick.com` routes to the Worker.
 - `live-demo.zhengwangyuan-patrick.com` routes to the local `cloudflared`
   tunnel when the walkthrough is running.
+- `sps-demo.zhengwangyuan-patrick.com` routes to the same Worker.
+- `live-sps-demo.zhengwangyuan-patrick.com` routes to the local SPS-VeriSpec
+  workbench service when the walkthrough is running.
 - The Worker proxies to `live-demo` when it is reachable and returns a clear
-  `503` offline page when the local app is unavailable. This avoids exposing a
-  raw Cloudflare 530 page to visitors.
+  `503` offline page when the selected local app is unavailable. This avoids
+  exposing a raw Cloudflare 530 page to visitors.
 
-The Worker template is in `cloudflare/demo-router-worker.js`. If the live app
-checks allowed hosts, include `live-demo.zhengwangyuan-patrick.com` in that
-allowlist.
+The Worker template is in `cloudflare/demo-router-worker.js`. If a live app
+checks allowed hosts, include its `live-*` tunnel hostname in that allowlist.
 
 Deploy the Worker after the static site is deployed. The existing
 `CLOUDFLARE_API_TOKEN` can deploy Pages, but Worker deployment needs a separate
@@ -89,6 +91,8 @@ Useful checks:
 curl --head https://my-site.zhengwangyuan-patrick.com/demo/
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://live-demo.zhengwangyuan-patrick.com/
+curl --head https://sps-demo.zhengwangyuan-patrick.com/
+curl --head https://live-sps-demo.zhengwangyuan-patrick.com/
 ```
 
 - `/demo/` returning `404` means the personal site has not been redeployed since
@@ -96,6 +100,7 @@ curl --head https://live-demo.zhengwangyuan-patrick.com/
 - `demo` returning Cloudflare `530` means it is still routed directly to a
   tunnel, or the Worker route is not deployed.
 - `live-demo` failing DNS means the tunnel hostname has not been created yet.
+- `sps-demo` uses the same Worker pattern for the SPS-VeriSpec Agent Workbench.
 
 ## Production Checks
 
@@ -104,11 +109,13 @@ After the first deployment:
 ```sh
 curl --head https://my-site.zhengwangyuan-patrick.com/
 curl --head https://demo.zhengwangyuan-patrick.com/
+curl --head https://sps-demo.zhengwangyuan-patrick.com/
 ```
 
 Expected results:
 
 - Personal site returns `200`.
-- `demo` returns the live app when the tunnel is running.
-- `demo` returns a clear `503` offline page when the local app is not
-  intentionally live.
+- `demo` and `sps-demo` return their live apps when the matching tunnel is
+  running.
+- `demo` and `sps-demo` return clear `503` offline pages when the local apps are
+  not intentionally live.

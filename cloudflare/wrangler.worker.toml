@@ -4,5 +4,6 @@ compatibility_date = "2026-07-02"
 workers_dev = false
 
 routes = [
-  { pattern = "demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" }
+  { pattern = "demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" },
+  { pattern = "sps-demo.zhengwangyuan-patrick.com/*", zone_name = "zhengwangyuan-patrick.com" }
 ]

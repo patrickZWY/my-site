@@ -32,8 +32,8 @@ bodyClass: projects
 <div>
 <p class="project-kicker">Automated testing</p>
 <h2>Automated Testing Framework with Soufflé</h2>
-<p>An automated testing framework I developed in SPS-VeriSpec, using Soufflé-based analysis to connect specifications with generated checks.</p>
+<p>SPS-VeriSpec connects Python source facts, Soufflé relations, generated test families, validation results, and review-only findings in a local agent workbench.</p>
 </div>
-<a href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
+<a href="/demo/#sps-verispec">Request demo</a>
 </article>
 </section>

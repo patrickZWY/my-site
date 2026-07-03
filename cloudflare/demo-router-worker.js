@@ -1,34 +1,46 @@
-const LIVE_DEMO_ORIGIN = "https://live-demo.zhengwangyuan-patrick.com";
 const OWNER_EMAIL = "zhengwangyuan.icarus@gmail.com";
 const GATEWAY_FAILURE_STATUSES = new Set([502, 503, 504, 521, 522, 523, 524, 530]);
+const DEMOS = {
+  "demo.zhengwangyuan-patrick.com": {
+    name: "TLA-Finance",
+    liveOrigin: "https://live-demo.zhengwangyuan-patrick.com",
+    subject: "Finance demo request",
+  },
+  "sps-demo.zhengwangyuan-patrick.com": {
+    name: "SPS-VeriSpec Agent Workbench",
+    liveOrigin: "https://live-sps-demo.zhengwangyuan-patrick.com",
+    subject: "SPS-VeriSpec demo request",
+  },
+};
 
 export default {
   async fetch(request) {
     const incomingUrl = new URL(request.url);
-    const liveUrl = new URL(incomingUrl.pathname + incomingUrl.search, LIVE_DEMO_ORIGIN);
+    const demo = DEMOS[incomingUrl.hostname] || DEMOS["demo.zhengwangyuan-patrick.com"];
+    const liveUrl = new URL(incomingUrl.pathname + incomingUrl.search, demo.liveOrigin);
     const liveRequest = new Request(liveUrl, request);
 
     let liveResponse;
     try {
       liveResponse = await fetch(liveRequest);
     } catch (_error) {
-      return offlineResponse(request);
+      return offlineResponse(request, demo);
     }
 
     if (!GATEWAY_FAILURE_STATUSES.has(liveResponse.status)) {
       return liveResponse;
     }
 
-    return offlineResponse(request);
+    return offlineResponse(request, demo);
   },
 };
 
-function offlineResponse(request) {
+function offlineResponse(request, demo) {
   const acceptsHtml = request.headers.get("accept")?.includes("text/html");
 
   if (request.method !== "GET" && request.method !== "HEAD" && !acceptsHtml) {
     return new Response(
-      `The live demo server is currently offline. Contact ${OWNER_EMAIL} to request access or schedule a walkthrough.`,
+      `The ${demo.name} live demo server is currently offline. Contact ${OWNER_EMAIL} to request access or schedule a walkthrough.`,
       {
         status: 503,
         headers: {
@@ -39,7 +51,7 @@ function offlineResponse(request) {
     );
   }
 
-  return new Response(request.method === "HEAD" ? null : offlineHtml(), {
+  return new Response(request.method === "HEAD" ? null : offlineHtml(demo), {
     status: 503,
     headers: {
       "content-type": "text/html; charset=utf-8",
@@ -48,7 +60,8 @@ function offlineResponse(request) {
   });
 }
 
-function offlineHtml() {
+function offlineHtml(demo) {
+  const subject = encodeURIComponent(demo.subject);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -129,10 +142,10 @@ function offlineHtml() {
 <body>
   <main>
     <p class="eyebrow">Demo offline</p>
-    <h1>The live demo server is currently offline.</h1>
+    <h1>${demo.name} is currently offline.</h1>
     <p>This demo runs from the owner's local environment and is only available during scheduled walkthroughs.</p>
     <p>Contact the owner for access or to schedule a live demo.</p>
-    <a class="button" href="mailto:${OWNER_EMAIL}?subject=Finance%20demo%20request">Email ${OWNER_EMAIL}</a>
+    <a class="button" href="mailto:${OWNER_EMAIL}?subject=${subject}">Email ${OWNER_EMAIL}</a>
   </main>
 </body>
 </html>`;
