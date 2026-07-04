@@ -1,0 +1,33 @@
+<section class="page-header private-page-header" aria-labelledby="private-study-title">
+<p class="eyebrow">Private notes</p>
+<h1 id="private-study-title">RabbitHole</h1>
+<p class="lede">A locked copy of the architecture-agent guide and the study materials behind it.</p>
+</section>
+
+<section class="private-callout" aria-labelledby="private-study-summary">
+<h2 id="private-study-summary">What This Is</h2>
+<p>This page collects the agent guide as a practical architecture-review checklist, plus the source studies that shaped it. The material is strongest for reviewing durable APIs, explicit boundaries, lifecycle rules, error contracts, observability, and risk-aware testing.</p>
+<p>My evaluation: it is effective as a design-review lens, but it should be applied with judgment. For small changes, the useful part is the operating rule; for systems, security, storage, concurrency, or compatibility work, the full checklist is worth using.</p>
+</section>
+
+<section class="section-block study-section" aria-labelledby="agent-guide-title">
+<div class="section-heading">
+<h2 id="agent-guide-title">Architecture Agent Guide</h2>
+</div>
+<article class="study-material-body">
+$guideBody$
+</article>
+</section>
+
+<section class="section-block study-section" aria-labelledby="source-studies-title">
+<div class="section-heading">
+<h2 id="source-studies-title">Source Studies</h2>
+</div>
+<div class="study-stack">
+$for(studyEntries)$
+<article class="study-material-body study-source">
+$body$
+</article>
+$endfor$
+</div>
+</section>

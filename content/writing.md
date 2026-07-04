@@ -19,3 +19,9 @@ bodyClass: writing
 <li>Deploying small technical demos without overbuilding.</li>
 </ul>
 </section>
+
+<div class="secret-entry-wrap" aria-label="Hidden entry">
+<a class="secret-entry" href="/rabbithole/" aria-label="Enter RabbitHole">
+<img src="/rabbithole-mark.svg" alt="" width="74" height="96">
+</a>
+</div>

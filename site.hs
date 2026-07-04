@@ -13,9 +13,20 @@ main = hakyllWith siteConfig $ do
         route idRoute
         compile compressCssCompiler
 
+    match "study-materials/*.md" $
+        compile pandocCompiler
+
     match "content/*.md" $ do
         route $ customRoute pageRoute
         compile pageCompiler
+
+    create ["rabbithole/index.html"] $ do
+        route idRoute
+        compile $
+            makeItem ("" :: String)
+                >>= loadAndApplyTemplate "templates/private-study.html" privateStudyContext
+                >>= loadAndApplyTemplate "templates/default.html" privateStudyContext
+                >>= relativizeUrls
 
     create ["sitemap.xml"] $ do
         route idRoute
@@ -44,6 +55,28 @@ siteContext =
     constField "siteTitle" "Zheng Wangyuan (Patrick)"
         <> constField "siteUrl" "https://zhengwangyuan-patrick.com"
         <> defaultContext
+
+privateStudyContext :: Context String
+privateStudyContext =
+    constField "title" "RabbitHole"
+        <> constField "description" "Private architecture-agent guide and study materials."
+        <> constField "canonicalPath" "/rabbithole/"
+        <> constField "bodyClass" "private-study"
+        <> field "guideBody" (\_ -> itemBody <$> load (fromFilePath "study-materials/agent.md"))
+        <> listField "studyEntries" siteContext (mapM load studyMaterialIds)
+        <> siteContext
+
+studyMaterialIds :: [Identifier]
+studyMaterialIds =
+    map
+        fromFilePath
+        [ "study-materials/study-linux-core.md"
+        , "study-materials/study-openssh-portable.md"
+        , "study-materials/study-openvpn.md"
+        , "study-materials/study-glibc-threading.md"
+        , "study-materials/study-opendal.md"
+        , "study-materials/study-oprofile.md"
+        ]
 
 sitemapContext :: [Item String] -> Context String
 sitemapContext pages =

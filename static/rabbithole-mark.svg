@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 96" role="img" aria-labelledby="title desc">
+  <title id="title">RabbitHole entry mark</title>
+  <desc id="desc">A small original headless figure mark with a heart and rabbit-hole spiral.</desc>
+  <defs>
+    <linearGradient id="body" x1="18" y1="16" x2="58" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74b6a6"/>
+      <stop offset="1" stop-color="#1f5e56"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#181816" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <path fill="#f7f6f2" stroke="#dedbd2" stroke-width="2" d="M37 92c17.7 0 32-14.3 32-32S54.7 28 37 28 5 42.3 5 60s14.3 32 32 32Z"/>
+  <path fill="none" stroke="#8a887f" stroke-linecap="round" stroke-width="2.2" d="M51 57c0 7.2-5.8 13-13 13-5.1 0-9.3-3.5-9.3-7.8 0-3.5 2.8-6.3 6.3-6.3 2.7 0 4.9 2.2 4.9 4.9 0 2-1.6 3.6-3.6 3.6"/>
+  <g filter="url(#soft)">
+    <path fill="url(#body)" d="M37 18c-4.7 0-8.4 2.2-8.4 5v8.8L15.8 43.6a4.1 4.1 0 0 0-.2 5.8 4 4 0 0 0 5.7.2l10.1-9.2-3 21.7-7.7 13.6a4 4 0 0 0 1.5 5.5 4.1 4.1 0 0 0 5.6-1.5l7.4-13.1h3.6l7.4 13.1a4.1 4.1 0 0 0 5.6 1.5 4 4 0 0 0 1.5-5.5l-7.7-13.6-3-21.7 10.1 9.2a4 4 0 0 0 5.7-.2 4.1 4.1 0 0 0-.2-5.8L45.4 31.8V23c0-2.8-3.7-5-8.4-5Z"/>
+    <path fill="#f09563" d="M37 42.1c-1.2-2-4.2-1.4-4.8.9-.8 3.2 2.5 5.7 4.8 7.2 2.3-1.5 5.6-4 4.8-7.2-.6-2.3-3.6-2.9-4.8-.9Z"/>
+    <path fill="#f7f6f2" d="M35.4 21.4h3.2v9.2h-3.2z"/>
+  </g>
+  <path fill="none" stroke="#b33f2f" stroke-linecap="round" stroke-width="2.4" d="M27 16c-2.9-3.2-3.1-7.4-.5-11M47 16c2.9-3.2 3.1-7.4.5-11"/>
+</svg>
