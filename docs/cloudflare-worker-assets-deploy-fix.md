@@ -18,8 +18,8 @@ existing projects. [code: 8000007]
 
 ## Symptoms
 
-- `my-site.zhengwangyuan-patrick.com` served the old deployed site.
-- `my-site.zhengwangyuan-patrick.com/demo/` returned `404` because the new
+- The personal-site custom domain served the old deployed site.
+- The personal-site `/demo/` route returned `404` because the new
   static `/demo/` page had not been deployed.
 - GitHub Actions failed at the Cloudflare deploy step.
 - `wrangler pages project list` produced no Pages project names.
@@ -113,13 +113,13 @@ Expected results:
 Check production:
 
 ```sh
-curl --head https://my-site.zhengwangyuan-patrick.com/demo/
+curl --head https://zhengwangyuan-patrick.com/demo/
 curl --head https://demo.zhengwangyuan-patrick.com/
 ```
 
 Expected results:
 
-- `my-site.zhengwangyuan-patrick.com/demo/` returns the deployed static demo
+- `zhengwangyuan-patrick.com/demo/` returns the deployed static demo
   request page after the personal site Worker deploy completes.
 - `demo.zhengwangyuan-patrick.com` returns the live app when the local tunnel is
   running, or the custom `503 text/html` offline page when it is not.

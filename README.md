@@ -1,4 +1,4 @@
-Static personal site built with Hakyll and deployed to Cloudflare Pages.
+Static personal site built with Hakyll and deployed to Cloudflare Workers static assets.
 
 ## Local Development
 
@@ -19,28 +19,46 @@ Hakyll writes the generated site to `_site`.
 
 The first version is profile and projects focused, not blog first. Replace the placeholder copy in `content/*.md` as real content becomes available.
 
-## Cloudflare Pages
+## Cloudflare
 
-Create or select a Cloudflare Pages project for this site. The Pages project name is the Cloudflare project slug, not the custom domain. If the default Pages URL is `example.pages.dev`, then the project name is `example`.
+The personal site deploys to the `round-recipe-030e` Worker/static-assets app.
 
 Required GitHub Actions secrets:
 
-- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_WORKERS_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
-
-Required GitHub Actions repository variable:
-
-- `CLOUDFLARE_PROJECT_NAME`
 
 The workflow in `.github/workflows/deploy.yml` builds with Stack and deploys `_site` using Wrangler:
 
 ```sh
-pages deploy _site --project-name=$CLOUDFLARE_PROJECT_NAME --branch=main --commit-dirty=true
+npx wrangler deploy --config cloudflare/wrangler.site.toml
 ```
 
-Attach this custom domain to the Pages project:
+Attach these custom domains to `round-recipe-030e`:
 
-- `my-site.zhengwangyuan-patrick.com`
+- `zhengwangyuan-patrick.com`
+- `my-site.zhengwangyuan-patrick.com`, redirecting to the apex domain
+
+The apex domain is the canonical public URL. `site.hs` uses
+`https://zhengwangyuan-patrick.com` for canonical links, Open Graph URLs, and
+the generated sitemap. `static/robots.txt` also points crawlers at the apex
+sitemap.
+
+Keep the old `my-site.zhengwangyuan-patrick.com` hostname proxied through
+Cloudflare, but redirect it at the zone level:
+
+- Dashboard path: `zhengwangyuan-patrick.com` > Rules > Redirect Rules.
+- Rule name: `Redirect old my-site subdomain to apex`.
+- Match: `Hostname` `equals` `my-site.zhengwangyuan-patrick.com`.
+- URL redirect type: `Dynamic`.
+- Expression: `concat("https://zhengwangyuan-patrick.com", http.request.uri.path)`.
+- Status code: `301 - Permanent Redirect`.
+- Preserve query string: enabled.
+
+This rule is intentionally scoped to only the old personal-site hostname. It
+does not match `demo.zhengwangyuan-patrick.com`,
+`sps-demo.zhengwangyuan-patrick.com`,
+`archipelago-demo.zhengwangyuan-patrick.com`, or any `live-*` tunnel hostname.
 
 For a durable demo reminder, put a Cloudflare Worker in front of
 the live-demo frontdoor hostnames:
@@ -66,10 +84,7 @@ Keep TLA-Finance, SPS-VeriSpec, and Archipelago on separate named tunnels;
 reusing one tunnel for multiple services can make a frontdoor show the wrong
 local app.
 
-Deploy the Worker after the static site is deployed. The existing
-`CLOUDFLARE_API_TOKEN` can deploy Pages, but Worker deployment needs a separate
-GitHub secret named `CLOUDFLARE_WORKERS_API_TOKEN` if that token does not have
-Worker permissions.
+Deploy the demo router Worker after the static site is deployed.
 
 Minimum token permissions for `CLOUDFLARE_WORKERS_API_TOKEN`:
 
@@ -81,8 +96,8 @@ Minimum token permissions for `CLOUDFLARE_WORKERS_API_TOKEN`:
 
 ```sh
 stack exec site rebuild
-pages deploy _site --project-name=my-site --branch=main --commit-dirty=true
-npx wrangler deploy --config wrangler.toml
+npx wrangler deploy --config cloudflare/wrangler.site.toml
+npx wrangler deploy --config cloudflare/wrangler.worker.toml
 ```
 
 If `https://demo.zhengwangyuan-patrick.com/` still shows a Cloudflare Tunnel
@@ -94,7 +109,7 @@ instead.
 Useful checks:
 
 ```sh
-curl --head https://my-site.zhengwangyuan-patrick.com/demo/
+curl --head https://zhengwangyuan-patrick.com/demo/
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://live-demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
@@ -124,7 +139,8 @@ see `docs/archipelago-demo-bugs-and-fixes.md`.
 After the first deployment:
 
 ```sh
-curl --head https://my-site.zhengwangyuan-patrick.com/
+curl --head https://zhengwangyuan-patrick.com/
+curl --head 'https://my-site.zhengwangyuan-patrick.com/demo/?x=1'
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
 curl --head https://archipelago-demo.zhengwangyuan-patrick.com/
@@ -133,6 +149,7 @@ curl --head https://archipelago-demo.zhengwangyuan-patrick.com/
 Expected results:
 
 - Personal site returns `200`.
+- Old `my-site` URLs return `301` to the same apex path and query string.
 - `demo`, `sps-demo`, and `archipelago-demo` return their live apps when the
   matching tunnel is running.
 - `demo`, `sps-demo`, and `archipelago-demo` return clear `503` offline pages

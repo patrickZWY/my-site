@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://my-site.zhengwangyuan-patrick.com/sitemap.xml
+Sitemap: https://zhengwangyuan-patrick.com/sitemap.xml

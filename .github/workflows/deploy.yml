@@ -14,7 +14,7 @@ permissions:
   deployments: write
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: workers-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,7 +22,6 @@ jobs:
     name: Build Hakyll site
     runs-on: ubuntu-latest
     env:
-      HAS_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
       HAS_CLOUDFLARE_WORKERS_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN != '' }}
       HAS_CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
     steps:
