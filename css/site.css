@@ -352,8 +352,8 @@ p {
 
 .secret-entry {
   display: inline-flex;
-  width: 74px;
-  height: 96px;
+  width: 82px;
+  height: 104px;
   align-items: center;
   justify-content: center;
   opacity: 0.48;
@@ -369,8 +369,8 @@ p {
 }
 
 .secret-entry img {
-  width: 74px;
-  height: 96px;
+  width: 82px;
+  height: 104px;
 }
 
 .private-page-header {
