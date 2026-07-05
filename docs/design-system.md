@@ -1,0 +1,80 @@
+# Site Design System
+
+This document records design rules for the personal site. Treat these rules as
+the default direction for new pages unless a page has a clearly different
+interaction model.
+
+## Core Direction
+
+The site should feel technical, calm, readable, and deliberate. It is not a
+marketing landing page. Favor clear hierarchy, strong reading rhythm, and
+interfaces that help visitors move through dense material without losing
+context.
+
+Use generous spacing by default:
+
+- Wider page gutters than the minimum needed to fit text.
+- Clear vertical separation between major sections.
+- Cards and rows with enough padding for scanning.
+- Long-form text with readable line height and visible breaks between topics.
+
+## Multi-Topic Reading Pattern
+
+For any page with multiple topics, nested layers, long study material, or a
+passage where readers may need to move back and forth, use the RabbitHole
+reading-rail pattern.
+
+This pattern is now the default for:
+
+- Long notes or essays with several major sections.
+- Study pages that combine an overview with multiple source studies.
+- Project pages that contain layered methodology, implementation notes, and
+  supporting material.
+- Any page where scrolling alone makes it hard to know where the reader is.
+
+The pattern must include:
+
+- A persistent right-side rail on desktop.
+- A progress line showing where the reader is in the full page.
+- Section links that jump directly to major sections.
+- Active-section highlighting while the reader scrolls.
+- Stable anchor IDs for each major section and subtopic.
+- A compact horizontal section navigator on smaller screens.
+- Smooth anchor navigation with enough scroll padding that headings are not
+  hidden under sticky UI.
+
+The rail should be useful, not decorative. If a page has too little structure
+to need navigation, do not add the rail.
+
+## RabbitHole Reference
+
+The current reference implementation is the private RabbitHole page:
+
+- `templates/private-study.html` defines the two-column reading layout and rail.
+- `css/site.css` defines `.private-study-layout`, `.private-reading-rail`,
+  `.private-rail-progress`, and `.private-section-nav`.
+- `static/study-nav.js` updates scroll progress and active section state.
+- `site.hs` provides stable IDs and human-readable navigation titles for each
+  source study.
+
+Future multi-topic pages should either reuse this structure directly or extract
+it into a shared template if another page needs the same behavior.
+
+## Interaction Rules
+
+Reading navigation should support both scanning and deep reading:
+
+- Keep the main text column stable and uncluttered.
+- Keep navigation close enough to be useful, but visually quieter than content.
+- Highlight the current section clearly without creating a loud sidebar.
+- Make jump links work without JavaScript; JavaScript should only enhance active
+  state and progress.
+- On mobile and narrow screens, prefer a sticky horizontal section navigator
+  over a squeezed sidebar.
+
+## Security Note For Private Pages
+
+Private content must not be generated at a public route and hidden only by UI.
+If private content is shipped as a static asset, the Worker must be the only
+path that can fetch it after access is granted. Public requests to internal
+private asset paths must return `404`.
