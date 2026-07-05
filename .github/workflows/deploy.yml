@@ -51,6 +51,9 @@ jobs:
       - name: Generate static site
         run: stack exec site rebuild
 
+      - name: Prepare private Rabbit Hole Worker page
+        run: node scripts/prepare-private-study-worker.js
+
       - name: Check generated pages
         run: |
           test -f _site/index.html
@@ -61,8 +64,10 @@ jobs:
           test -f _site/404.html
           test -f _site/study-nav.js
           test ! -e _site/rabbithole/index.html
-          test -f _site/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/rabbithole.html
+          test ! -e _site/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71
+          test -f cloudflare/private-study-page.generated.js
           node --check static/study-nav.js
+          node --check cloudflare/private-study-page.generated.js
           node --check cloudflare/site-worker.js
           node --check cloudflare/demo-router-worker.js
 

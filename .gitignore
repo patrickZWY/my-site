@@ -3,6 +3,7 @@
 .wrangler/
 _cache/
 _site/
+cloudflare/private-study-page.generated.js
 dist-newstyle/
 *.hi
 *.o
