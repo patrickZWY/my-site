@@ -1,37 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 120" role="img" aria-labelledby="title desc">
   <title id="title">RabbitHole entry mark</title>
-  <desc id="desc">An original caduceus mark with wings, paired serpents, a central staff, and a small keyhole.</desc>
+  <desc id="desc">A simple caduceus mark with a central staff, widening serpent loops, and two wings near the top.</desc>
   <defs>
     <style>
-      .ink{fill:none;stroke:#171512;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-      .thin{fill:none;stroke:#171512;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+      .ink{fill:none;stroke:#171512;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+      .thin{fill:none;stroke:#171512;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
       .paper{fill:#f8f1e5}
       .teal{fill:#1f5e56}
-      .gold{fill:#e5b94d}
-      .red{fill:#b33f2f}
-      .black{fill:#171512}
+      .gold{stroke:#e5b94d}
+      .snake{fill:none;stroke:#1f5e56;stroke-width:4.6;stroke-linecap:round;stroke-linejoin:round}
+      .snake-shadow{fill:none;stroke:#171512;stroke-width:7.2;stroke-linecap:round;stroke-linejoin:round}
+      .staff{fill:none;stroke:#e5b94d;stroke-width:4.8;stroke-linecap:round}
     </style>
   </defs>
 
   <circle class="paper ink" cx="48" cy="62" r="43"/>
-  <path class="gold ink" d="M48 16v88"/>
-  <circle class="gold ink" cx="48" cy="18" r="5"/>
-  <path class="ink" d="M39 104h18M43 96h10"/>
 
-  <path class="teal ink" d="M45 31c-11-10-23-12-35-5 10 4 18 10 24 19-9-1-18 1-27 7 15 3 27 3 37-2z"/>
-  <path class="teal ink" d="M51 31c11-10 23-12 35-5-10 4-18 10-24 19 9-1 18 1 27 7-15 3-27 3-37-2z"/>
-  <path class="thin" d="M17 29c8 4 15 10 21 18M79 29c-8 4-15 10-21 18"/>
+  <path class="teal ink" d="M45 34C35 24 22 23 11 31c12 2 22 7 32 17z"/>
+  <path class="teal ink" d="M51 34c10-10 23-11 34-3-12 2-22 7-32 17z"/>
+  <path class="thin" d="M20 32c8 3 15 7 21 13M76 32c-8 3-15 7-21 13"/>
 
-  <path class="red ink" d="M44 37c-14 6-19 15-15 23 3 6 12 5 19 11 8 7 3 18-12 25"/>
-  <path class="teal ink" d="M52 37c14 6 19 15 15 23-3 6-12 5-19 11-8 7-3 18 12 25"/>
-  <path class="thin" d="M34 47c6 4 22 4 28 0M30 60c8 5 28 5 36 0M38 76c6 4 14 4 20 0M39 90c5 3 13 3 18 0"/>
+  <path class="staff" d="M48 20v82"/>
+  <path class="ink" d="M39 102h18"/>
 
-  <circle class="paper ink" cx="31" cy="58" r="4.5"/>
-  <circle class="paper ink" cx="65" cy="58" r="4.5"/>
-  <path class="black" d="M29.5 57.5h3v3h-3z"/>
-  <path class="black" d="M63.5 57.5h3v3h-3z"/>
-
-  <path class="paper ink" d="M39 74c0-5.2 3.9-9.2 9-9.2s9 4 9 9.2v9H39z"/>
-  <circle class="black" cx="48" cy="73" r="3.1"/>
-  <path class="black" d="M46.2 75h3.6l1.5 6h-6.6z"/>
+  <path class="snake-shadow" d="M48 94c-7 0-11-3-11-7s4-7 11-7 11 3 11 7-4 7-11 7z"/>
+  <path class="snake-shadow" d="M48 77c-10 0-16-4-16-9s6-9 16-9 16 4 16 9-6 9-16 9z"/>
+  <path class="snake-shadow" d="M48 57c-14 0-22-5-22-11s8-11 22-11 22 5 22 11-8 11-22 11z"/>
+  <path class="snake" d="M48 94c-7 0-11-3-11-7s4-7 11-7 11 3 11 7-4 7-11 7z"/>
+  <path class="snake" d="M48 77c-10 0-16-4-16-9s6-9 16-9 16 4 16 9-6 9-16 9z"/>
+  <path class="snake" d="M48 57c-14 0-22-5-22-11s8-11 22-11 22 5 22 11-8 11-22 11z"/>
+  <path class="snake-shadow" d="M48 35c0-6 4-10 11-12"/>
+  <path class="snake" d="M48 35c0-6 4-10 11-12"/>
+  <path class="paper ink" d="M56 20c4-1 7 1 8 4-4 2-8 1-10-2z"/>
+  <path class="thin" d="M61 22l4-3"/>
 </svg>
