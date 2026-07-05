@@ -1,3 +1,7 @@
+---
+tags: Python projects
+---
+
 # Pony ORM Codebase Study
 
 This document studies the local Pony repository as a Python project. It focuses

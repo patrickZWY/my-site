@@ -105,17 +105,11 @@ studyNavTitleFor identifier =
         baseName -> baseName
 
 studyTagField :: Identifier -> Compiler String
-studyTagField identifier =
-    case studyTagFor identifier of
-        Just tag -> return tag
-        Nothing -> noResult "No study tag"
-
-studyTagFor :: Identifier -> Maybe String
-studyTagFor identifier =
-    case takeBaseName (toFilePath identifier) of
-        "bentoml-study" -> Just "Python projects"
-        "pony-study" -> Just "Python projects"
-        _ -> Nothing
+studyTagField identifier = do
+    tags <- getMetadataField identifier "tags"
+    case tags of
+        Just value -> return value
+        Nothing -> noResult "No study tags"
 
 sitemapContext :: [Item String] -> Context String
 sitemapContext pages =

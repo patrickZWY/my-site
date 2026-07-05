@@ -1,3 +1,7 @@
+---
+tags: Python projects
+---
+
 # BentoML Codebase Study
 
 This document studies how this repository designs, organizes, tests, and ships a
