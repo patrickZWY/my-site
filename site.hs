@@ -20,7 +20,7 @@ main = hakyllWith siteConfig $ do
         route $ customRoute pageRoute
         compile pageCompiler
 
-    create ["rabbithole/index.html"] $ do
+    create ["private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/rabbithole.html"] $ do
         route idRoute
         compile $
             makeItem ("" :: String)

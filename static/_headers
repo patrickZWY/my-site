@@ -6,3 +6,7 @@
 /rabbithole/*
   Cache-Control: private, no-store
   X-Robots-Tag: noindex, nofollow, noarchive
+
+/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow, noarchive

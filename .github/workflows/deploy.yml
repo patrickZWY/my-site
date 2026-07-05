@@ -59,6 +59,8 @@ jobs:
           test -f _site/writing/index.html
           test -f _site/contact/index.html
           test -f _site/404.html
+          test ! -e _site/rabbithole/index.html
+          test -f _site/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/rabbithole.html
           node --check cloudflare/site-worker.js
           node --check cloudflare/demo-router-worker.js
 

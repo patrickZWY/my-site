@@ -1,4 +1,6 @@
 const PRIVATE_PATH = "/rabbithole";
+const PRIVATE_ASSET_PREFIX = "/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/";
+const PRIVATE_ASSET_PATH = `${PRIVATE_ASSET_PREFIX}rabbithole.html`;
 const ANSWER_HASH = "23ddda4810068cc44360dffd31b6c5a9ad13fb9e6a69c9354a5d1b07f1b9843f";
 const COOKIE_NAME = "agent_study_access";
 const COOKIE_VALUE = "v1.621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71";
@@ -8,6 +10,15 @@ const FORCE_GATE_PARAM = "gate";
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (isPrivateAssetPath(url.pathname)) {
+      return new Response("Not Found", {
+        status: 404,
+        headers: privateHeaders({
+          "Content-Type": "text/plain; charset=utf-8",
+        }),
+      });
+    }
 
     if (!isPrivatePath(url.pathname)) {
       return env.ASSETS.fetch(request);
@@ -37,8 +48,7 @@ export default {
       return renderGate(false);
     }
 
-    const response = await env.ASSETS.fetch(request);
-    return withPrivateHeaders(response);
+    return fetchPrivatePage(request, env);
   },
 };
 
@@ -74,6 +84,10 @@ async function handleUnlock(request) {
 
 function isPrivatePath(pathname) {
   return pathname === PRIVATE_PATH || pathname.startsWith(`${PRIVATE_PATH}/`);
+}
+
+function isPrivateAssetPath(pathname) {
+  return pathname === PRIVATE_ASSET_PREFIX.slice(0, -1) || pathname.startsWith(PRIVATE_ASSET_PREFIX);
 }
 
 function hasAccess(request) {
@@ -169,6 +183,13 @@ function clearAccessCookie() {
     "Secure",
     "SameSite=Strict",
   ].join("; ");
+}
+
+async function fetchPrivatePage(request, env) {
+  const assetUrl = new URL(PRIVATE_ASSET_PATH, request.url);
+  const assetRequest = new Request(assetUrl, request);
+  const response = await env.ASSETS.fetch(assetRequest);
+  return withPrivateHeaders(response);
 }
 
 function withPrivateHeaders(response) {
