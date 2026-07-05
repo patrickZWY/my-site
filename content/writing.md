@@ -8,7 +8,6 @@ bodyClass: writing
 <section class="page-header" aria-labelledby="writing-title">
 <p class="eyebrow">Notes</p>
 <h1 id="writing-title">Writing</h1>
-<p class="lede">This section is ready for essays, research notes, and project retrospectives. No blog archive is wired up yet.</p>
 </section>
 
 <section class="empty-state" aria-labelledby="next-title">

@@ -8,7 +8,6 @@ bodyClass: projects
 <section class="page-header" aria-labelledby="projects-title">
 <p class="eyebrow">Selected work</p>
 <h1 id="projects-title">Projects</h1>
-<p class="lede">A small index of formal methods, finance verification, smart-contract security, and automated testing work.</p>
 </section>
 
 <section class="project-list" aria-label="Project list">

@@ -8,7 +8,6 @@ bodyClass: demo
 <section class="page-header" aria-labelledby="demo-title">
 <p class="eyebrow">Live demo by request</p>
 <h1 id="demo-title">Demo offline</h1>
-<p class="lede">The live demo servers run from my local environment and are available during scheduled walkthroughs. When a local service is offline, the demo frontdoor returns a readable offline page instead of a tunnel error.</p>
 <p><a class="button" href="mailto:zhengwangyuan.icarus@gmail.com?subject=Live%20demo%20request">Request a live demo</a></p>
 </section>
 

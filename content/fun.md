@@ -8,7 +8,6 @@ bodyClass: fun
 <section class="page-header" aria-labelledby="fun-title">
 <p class="eyebrow">Playful demos</p>
 <h1 id="fun-title">Fun</h1>
-<p class="lede">Small apps and experiments that are more about exploration, taste, and interaction than formal project writeups.</p>
 </section>
 
 <section class="project-list" aria-label="Fun project list">

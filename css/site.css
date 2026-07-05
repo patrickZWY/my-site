@@ -203,14 +203,7 @@ p {
   text-transform: uppercase;
 }
 
-.lede {
-  max-width: 780px;
-  color: var(--muted);
-  font-size: 1.35rem;
-  line-height: 1.45;
-}
-
-.intro > p:not(.eyebrow):not(.lede) {
+.intro > p:not(.eyebrow) {
   max-width: 760px;
 }
 
@@ -806,10 +799,6 @@ body.private-study .site-shell {
 
   .intro {
     padding-block: 0.75rem 4.25rem;
-  }
-
-  .lede {
-    font-size: 1.12rem;
   }
 
   .section-block {

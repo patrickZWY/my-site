@@ -8,7 +8,6 @@ bodyClass: contact
 <section class="page-header" aria-labelledby="contact-title">
 <p class="eyebrow">Contact</p>
 <h1 id="contact-title">Get in touch</h1>
-<p class="lede">For a live demo or project discussion, email me and include the project you want to see.</p>
 </section>
 
 <section class="contact-list" aria-label="Contact links">
