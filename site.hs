@@ -63,7 +63,13 @@ privateStudyContext =
         <> constField "canonicalPath" "/rabbithole/"
         <> constField "bodyClass" "private-study"
         <> field "guideBody" (\_ -> itemBody <$> load (fromFilePath "study-materials/agent.md"))
-        <> listField "studyEntries" siteContext (mapM load studyMaterialIds)
+        <> listField "studyEntries" studyEntryContext (mapM load studyMaterialIds)
+        <> siteContext
+
+studyEntryContext :: Context String
+studyEntryContext =
+    field "studyId" (return . studyIdFor . itemIdentifier)
+        <> field "studyNavTitle" (return . studyNavTitleFor . itemIdentifier)
         <> siteContext
 
 studyMaterialIds :: [Identifier]
@@ -77,6 +83,21 @@ studyMaterialIds =
         , "study-materials/study-opendal.md"
         , "study-materials/study-oprofile.md"
         ]
+
+studyIdFor :: Identifier -> String
+studyIdFor =
+    ("source-" <>) . takeBaseName . toFilePath
+
+studyNavTitleFor :: Identifier -> String
+studyNavTitleFor identifier =
+    case takeBaseName (toFilePath identifier) of
+        "study-linux-core" -> "Linux Kernel"
+        "study-openssh-portable" -> "OpenSSH"
+        "study-openvpn" -> "OpenVPN"
+        "study-glibc-threading" -> "glibc NPTL"
+        "study-opendal" -> "OpenDAL"
+        "study-oprofile" -> "OProfile"
+        baseName -> baseName
 
 sitemapContext :: [Item String] -> Context String
 sitemapContext pages =

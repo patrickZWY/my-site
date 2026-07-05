@@ -1,16 +1,18 @@
-<section class="page-header private-page-header" aria-labelledby="private-study-title">
+<div class="private-study-layout">
+<div class="private-study-content">
+<section class="page-header private-page-header" aria-labelledby="private-study-title" data-private-section>
 <p class="eyebrow">Private notes</p>
 <h1 id="private-study-title">RabbitHole</h1>
 <p class="lede">A locked copy of the architecture-agent guide and the study materials behind it.</p>
 </section>
 
-<section class="private-callout" aria-labelledby="private-study-summary">
+<section class="private-callout" aria-labelledby="private-study-summary" data-private-section>
 <h2 id="private-study-summary">What This Is</h2>
 <p>This page collects the agent guide as a practical architecture-review checklist, plus the source studies that shaped it. The material is strongest for reviewing durable APIs, explicit boundaries, lifecycle rules, error contracts, observability, and risk-aware testing.</p>
 <p>My evaluation: it is effective as a design-review lens, but it should be applied with judgment. For small changes, the useful part is the operating rule; for systems, security, storage, concurrency, or compatibility work, the full checklist is worth using.</p>
 </section>
 
-<section class="section-block study-section" aria-labelledby="agent-guide-title">
+<section class="section-block study-section" aria-labelledby="agent-guide-title" data-private-section>
 <div class="section-heading">
 <h2 id="agent-guide-title">Architecture Agent Guide</h2>
 </div>
@@ -19,15 +21,36 @@ $guideBody$
 </article>
 </section>
 
-<section class="section-block study-section" aria-labelledby="source-studies-title">
+<section class="section-block study-section" aria-labelledby="source-studies-title" data-private-section>
 <div class="section-heading">
 <h2 id="source-studies-title">Source Studies</h2>
 </div>
 <div class="study-stack">
 $for(studyEntries)$
-<article class="study-material-body study-source">
+<article id="$studyId$" class="study-material-body study-source" data-private-section>
 $body$
 </article>
 $endfor$
 </div>
 </section>
+</div>
+
+<aside class="private-reading-rail" aria-label="RabbitHole sections">
+<div class="private-reading-rail-inner">
+<div class="private-rail-progress" aria-hidden="true">
+<span class="private-rail-progress-fill"></span>
+</div>
+<nav class="private-section-nav">
+<a href="#private-study-title" data-private-nav>Top</a>
+<a href="#private-study-summary" data-private-nav>What This Is</a>
+<a href="#agent-guide-title" data-private-nav>Agent Guide</a>
+<a href="#source-studies-title" data-private-nav>Source Studies</a>
+$for(studyEntries)$
+<a href="#$studyId$" data-private-nav>$studyNavTitle$</a>
+$endfor$
+</nav>
+</div>
+</aside>
+</div>
+
+<script src="/study-nav.js" defer></script>
