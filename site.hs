@@ -58,7 +58,7 @@ siteContext =
 
 privateStudyContext :: Context String
 privateStudyContext =
-    constField "title" "RabbitHole"
+    constField "title" "Rabbit Hole"
         <> constField "description" "Private architecture-agent guide and study materials."
         <> constField "canonicalPath" "/rabbithole/"
         <> constField "bodyClass" "private-study"
@@ -70,6 +70,7 @@ studyEntryContext :: Context String
 studyEntryContext =
     field "studyId" (return . studyIdFor . itemIdentifier)
         <> field "studyNavTitle" (return . studyNavTitleFor . itemIdentifier)
+        <> field "studyTag" (studyTagField . itemIdentifier)
         <> siteContext
 
 studyMaterialIds :: [Identifier]
@@ -82,6 +83,8 @@ studyMaterialIds =
         , "study-materials/study-glibc-threading.md"
         , "study-materials/study-opendal.md"
         , "study-materials/study-oprofile.md"
+        , "study-materials/bentoml-study.md"
+        , "study-materials/pony-study.md"
         ]
 
 studyIdFor :: Identifier -> String
@@ -97,7 +100,22 @@ studyNavTitleFor identifier =
         "study-glibc-threading" -> "glibc NPTL"
         "study-opendal" -> "OpenDAL"
         "study-oprofile" -> "OProfile"
+        "bentoml-study" -> "BentoML"
+        "pony-study" -> "Pony ORM"
         baseName -> baseName
+
+studyTagField :: Identifier -> Compiler String
+studyTagField identifier =
+    case studyTagFor identifier of
+        Just tag -> return tag
+        Nothing -> noResult "No study tag"
+
+studyTagFor :: Identifier -> Maybe String
+studyTagFor identifier =
+    case takeBaseName (toFilePath identifier) of
+        "bentoml-study" -> Just "Python projects"
+        "pony-study" -> Just "Python projects"
+        _ -> Nothing
 
 sitemapContext :: [Item String] -> Context String
 sitemapContext pages =

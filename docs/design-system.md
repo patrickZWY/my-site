@@ -21,7 +21,7 @@ Use generous spacing by default:
 ## Multi-Topic Reading Pattern
 
 For any page with multiple topics, nested layers, long study material, or a
-passage where readers may need to move back and forth, use the RabbitHole
+passage where readers may need to move back and forth, use the Rabbit Hole
 reading-rail pattern.
 
 This pattern is now the default for:
@@ -46,9 +46,9 @@ The pattern must include:
 The rail should be useful, not decorative. If a page has too little structure
 to need navigation, do not add the rail.
 
-## RabbitHole Reference
+## Rabbit Hole Reference
 
-The current reference implementation is the private RabbitHole page:
+The current reference implementation is the private Rabbit Hole page:
 
 - `templates/private-study.html` defines the two-column reading layout and rail.
 - `css/site.css` defines `.private-study-layout`, `.private-reading-rail`,

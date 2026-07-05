@@ -2,7 +2,7 @@
 <div class="private-study-content">
 <section class="page-header private-page-header" aria-labelledby="private-study-title" data-private-section>
 <p class="eyebrow">Private notes</p>
-<h1 id="private-study-title">RabbitHole</h1>
+<h1 id="private-study-title">Rabbit Hole</h1>
 </section>
 
 <section class="private-callout" aria-labelledby="private-study-summary" data-private-section>
@@ -27,6 +27,11 @@ $guideBody$
 <div class="study-stack">
 $for(studyEntries)$
 <article id="$studyId$" class="study-material-body study-source" data-private-section>
+$if(studyTag)$
+<div class="study-tags" aria-label="Study tags">
+<span class="study-tag">$studyTag$</span>
+</div>
+$endif$
 $body$
 </article>
 $endfor$
@@ -34,7 +39,7 @@ $endfor$
 </section>
 </div>
 
-<aside class="private-reading-rail" aria-label="RabbitHole sections">
+<aside class="private-reading-rail" aria-label="Rabbit Hole sections">
 <div class="private-reading-rail-inner">
 <div class="private-rail-progress" aria-hidden="true">
 <span class="private-rail-progress-fill"></span>

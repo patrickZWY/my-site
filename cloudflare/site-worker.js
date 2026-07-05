@@ -149,14 +149,14 @@ function renderGate(hasError, options = {}) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="color-scheme" content="light dark">
-  <title>RabbitHole | Zheng Wangyuan (Patrick)</title>
+  <title>Rabbit Hole | Zheng Wangyuan (Patrick)</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="private-gate">
   <main class="private-gate-panel" aria-labelledby="private-gate-title">
     <p class="eyebrow">Private page</p>
-    <h1 id="private-gate-title">RabbitHole</h1>
+    <h1 id="private-gate-title">Rabbit Hole</h1>
     <p>Answer the question to enter the study page.</p>
     <form class="private-gate-form" method="post" action="${PRIVATE_PATH}/">
       <label for="answer">Who do I like the most?</label>
