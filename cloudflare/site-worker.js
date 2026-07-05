@@ -3,6 +3,7 @@ const ANSWER_HASH = "23ddda4810068cc44360dffd31b6c5a9ad13fb9e6a69c9354a5d1b07f1b
 const COOKIE_NAME = "agent_study_access";
 const COOKIE_VALUE = "v1.621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 14;
+const FORCE_GATE_PARAM = "gate";
 
 export default {
   async fetch(request, env) {
@@ -28,6 +29,10 @@ export default {
       });
     }
 
+    if (url.searchParams.has(FORCE_GATE_PARAM)) {
+      return renderGate(false, { clearAccess: true });
+    }
+
     if (!hasAccess(request)) {
       return renderGate(false);
     }
@@ -44,11 +49,11 @@ async function handleUnlock(request) {
     const form = await request.formData();
     answer = String(form.get("answer") || "");
   } catch (_error) {
-    return renderGate(true);
+    return renderGate(true, { clearAccess: true });
   }
 
   if (!(await answerMatches(answer))) {
-    return renderGate(true);
+    return renderGate(true, { clearAccess: true });
   }
 
   return new Response(null, {
@@ -79,7 +84,7 @@ function hasAccess(request) {
 async function answerMatches(answer) {
   const normalized = answer.trim().toLowerCase();
   const hash = await sha256Hex(normalized);
-  return hash === ANSWER_HASH;
+  return constantTimeEqual(hash, ANSWER_HASH);
 }
 
 async function sha256Hex(value) {
@@ -88,6 +93,17 @@ async function sha256Hex(value) {
   return [...new Uint8Array(digest)]
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("");
+}
+
+function constantTimeEqual(left, right) {
+  let diff = left.length ^ right.length;
+  const maxLength = Math.max(left.length, right.length);
+
+  for (let index = 0; index < maxLength; index += 1) {
+    diff |= (left.charCodeAt(index) || 0) ^ (right.charCodeAt(index) || 0);
+  }
+
+  return diff === 0;
 }
 
 function parseCookies(header) {
@@ -102,7 +118,15 @@ function parseCookies(header) {
   return cookies;
 }
 
-function renderGate(hasError) {
+function renderGate(hasError, options = {}) {
+  const headers = privateHeaders({
+    "Content-Type": "text/html; charset=utf-8",
+  });
+
+  if (options.clearAccess) {
+    headers.append("Set-Cookie", clearAccessCookie());
+  }
+
   return new Response(
     `<!doctype html>
 <html lang="en">
@@ -131,11 +155,20 @@ function renderGate(hasError) {
 </html>`,
     {
       status: hasError ? 401 : 200,
-      headers: privateHeaders({
-        "Content-Type": "text/html; charset=utf-8",
-      }),
+      headers,
     }
   );
+}
+
+function clearAccessCookie() {
+  return [
+    `${COOKIE_NAME}=`,
+    "Max-Age=0",
+    `Path=${PRIVATE_PATH}`,
+    "HttpOnly",
+    "Secure",
+    "SameSite=Strict",
+  ].join("; ");
 }
 
 function withPrivateHeaders(response) {

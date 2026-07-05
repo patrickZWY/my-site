@@ -21,7 +21,7 @@ bodyClass: writing
 </section>
 
 <div class="secret-entry-wrap" aria-label="Hidden entry">
-<a class="secret-entry" href="/rabbithole/" aria-label="Enter RabbitHole">
-<img src="/rabbithole-mark.svg" alt="" width="82" height="104">
+<a class="secret-entry" href="/rabbithole/?gate=1" aria-label="Enter RabbitHole">
+<img src="/rabbithole-mark.svg" alt="" width="88" height="110">
 </a>
 </div>
