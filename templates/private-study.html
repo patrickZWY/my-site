@@ -20,6 +20,24 @@ $guideBody$
 </article>
 </section>
 
+<section class="section-block study-section" aria-labelledby="compiler-studies-title" data-private-section>
+<div class="section-heading">
+<h2 id="compiler-studies-title">Compiler Studies</h2>
+</div>
+<div class="study-stack">
+$for(compilerStudyEntries)$
+<article id="$studyId$" class="study-material-body study-source" data-private-section>
+$if(studyTag)$
+<div class="study-tags" aria-label="Study tags">
+<span class="study-tag">$studyTag$</span>
+</div>
+$endif$
+$body$
+</article>
+$endfor$
+</div>
+</section>
+
 <section class="section-block study-section" aria-labelledby="source-studies-title" data-private-section>
 <div class="section-heading">
 <h2 id="source-studies-title">Source Studies</h2>
@@ -48,7 +66,11 @@ $endfor$
 <a href="#private-study-title" data-private-nav>Top</a>
 <a href="#private-study-summary" data-private-nav>What This Is</a>
 <a href="#agent-guide-title" data-private-nav>Agent Guide</a>
+<a href="#compiler-studies-title" data-private-nav>Compiler</a>
 <a href="#source-studies-title" data-private-nav>Source Studies</a>
+$for(compilerStudyEntries)$
+<a href="#$studyId$" data-private-nav>$studyNavTitle$</a>
+$endfor$
 $for(studyEntries)$
 <a href="#$studyId$" data-private-nav>$studyNavTitle$</a>
 $endfor$

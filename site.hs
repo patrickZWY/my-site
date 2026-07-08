@@ -64,6 +64,7 @@ privateStudyContext =
         <> constField "bodyClass" "private-study"
         <> field "guideBody" (\_ -> itemBody <$> load (fromFilePath "study-materials/agent.md"))
         <> listField "studyEntries" studyEntryContext (mapM load studyMaterialIds)
+        <> listField "compilerStudyEntries" studyEntryContext (mapM load compilerStudyIds)
         <> siteContext
 
 studyEntryContext :: Context String
@@ -87,6 +88,14 @@ studyMaterialIds =
         , "study-materials/pony-study.md"
         ]
 
+compilerStudyIds :: [Identifier]
+compilerStudyIds =
+    map
+        fromFilePath
+        [ "study-materials/study-lua.md"
+        , "study-materials/study-ryujit.md"
+        ]
+
 studyIdFor :: Identifier -> String
 studyIdFor =
     ("source-" <>) . takeBaseName . toFilePath
@@ -102,6 +111,8 @@ studyNavTitleFor identifier =
         "study-oprofile" -> "OProfile"
         "bentoml-study" -> "BentoML"
         "pony-study" -> "Pony ORM"
+        "study-lua" -> "Lua"
+        "study-ryujit" -> "RyuJIT"
         baseName -> baseName
 
 studyTagField :: Identifier -> Compiler String

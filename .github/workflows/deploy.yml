@@ -67,9 +67,9 @@ jobs:
           test ! -e _site/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71
           test -f cloudflare/private-study-page.generated.js
           node --check static/study-nav.js
-          node --check cloudflare/private-study-page.generated.js
-          node --check cloudflare/site-worker.js
-          node --check cloudflare/demo-router-worker.js
+          node --input-type=module --check < cloudflare/private-study-page.generated.js
+          node --input-type=module --check < cloudflare/site-worker.js
+          node --input-type=module --check < cloudflare/demo-router-worker.js
 
       - name: Deploy personal site Worker to Cloudflare
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
