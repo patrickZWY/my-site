@@ -505,6 +505,8 @@ body.private-study .site-shell {
 }
 
 .study-material-body {
+  max-width: 100%;
+  min-width: 0;
   padding: 2rem;
   overflow-wrap: anywhere;
 }
@@ -584,12 +586,20 @@ body.private-study .site-shell {
 }
 
 .study-material-body pre {
-  overflow-x: auto;
+  max-width: 100%;
+  overflow-x: hidden;
   padding: 1.2rem;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .study-material-body pre code {
+  display: block;
   padding: 0;
+  overflow-wrap: inherit;
+  white-space: inherit;
+  word-break: inherit;
 }
 
 .private-gate {
