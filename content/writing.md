@@ -3,6 +3,7 @@ title: Writing
 description: Placeholder writing index for notes and technical essays.
 canonicalPath: /writing/
 bodyClass: writing
+navWriting: true
 ---
 
 <section class="page-header" aria-labelledby="writing-title">
