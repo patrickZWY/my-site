@@ -3,6 +3,7 @@ title: Fun
 description: Playful demos and small experiments by Zheng Wangyuan (Patrick).
 canonicalPath: /fun/
 bodyClass: fun
+navFun: true
 ---
 
 <section class="page-header" aria-labelledby="fun-title">
@@ -17,6 +18,6 @@ bodyClass: fun
 <h2>Archipelago</h2>
 <p>A playful movie-graph app for mapping how films connect, opening a seeded demo network, browsing friends' graph islands, and sharing read-only graph links.</p>
 </div>
-<a href="https://archipelago-demo.zhengwangyuan-patrick.com/">Open frontdoor</a>
+<a href="https://archipelago-demo.zhengwangyuan-patrick.com/">Open demo</a>
 </article>
 </section>

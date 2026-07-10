@@ -25,10 +25,9 @@
         <span class="brand-text">$siteTitle$</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="/projects/">Projects</a>
-        <a href="/fun/">Fun</a>
-        <a href="/writing/">Writing</a>
-        <a href="/contact/">Contact</a>
+        <a href="/projects/"$if(navProjects)$ aria-current="page"$endif$>Projects</a>
+        <a href="/fun/"$if(navFun)$ aria-current="page"$endif$>Fun</a>
+        <a href="/contact/"$if(navContact)$ aria-current="page"$endif$>Contact</a>
       </nav>
     </div>
   </header>

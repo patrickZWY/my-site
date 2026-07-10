@@ -58,6 +58,9 @@ jobs:
         run: |
           test -f _site/index.html
           test -f _site/projects/index.html
+          test -f _site/projects/tla-finance/index.html
+          test -f _site/projects/price-manipulation/index.html
+          test -f _site/projects/sps-verispec/index.html
           test -f _site/demo/index.html
           test -f _site/writing/index.html
           test -f _site/contact/index.html

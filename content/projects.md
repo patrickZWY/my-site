@@ -3,6 +3,7 @@ title: Projects
 description: Selected technical projects by Zheng Wangyuan (Patrick).
 canonicalPath: /projects/
 bodyClass: projects
+navProjects: true
 ---
 
 <section class="page-header" aria-labelledby="projects-title">
@@ -13,26 +14,26 @@ bodyClass: projects
 <section class="project-list" aria-label="Project list">
 <article class="project-row">
 <div>
-<p class="project-kicker">Live demo by request</p>
+<p class="project-kicker">Demo available by request</p>
 <h2>TLA-Finance</h2>
-<p>Interactive finance verification demo and supporting models. The demo runs from a local environment, so email me to schedule a live walkthrough if the demo link is unavailable.</p>
+<p>Formal models and an interactive walkthrough for investigating suspicious outputs from an agentic finance system.</p>
 </div>
-<a href="/demo/">Request demo</a>
+<a href="/projects/tla-finance/">View project</a>
 </article>
 <article class="project-row">
 <div>
 <p class="project-kicker">Smart contract security</p>
-<h2>Methodology for Verifying Smart Contract Against Price Manipulation Attacks</h2>
-<p>How I apply model checking and program analysis to detecting AMM-style attacks and price-oracle manipulation attacks.</p>
+<h2>Checking Smart Contracts for Price Manipulation Attacks</h2>
+<p>I check whether manipulated AMM or oracle prices can push a contract into unsafe behavior.</p>
 </div>
-<a href="/contact/">Request details</a>
+<a href="/projects/price-manipulation/">View methodology</a>
 </article>
 <article class="project-row">
 <div>
 <p class="project-kicker">Automated testing</p>
-<h2>Automated Testing Framework with Soufflé</h2>
-<p>SPS-VeriSpec connects Python source facts, Soufflé relations, generated test families, validation results, and review-only findings in a local agent workbench.</p>
+<h2>SPS-VeriSpec</h2>
+<p>SPS-VeriSpec reads Python code, runs Soufflé rules over what it finds, and turns the strongest results into pytest tests. Uncertain results stay marked for review.</p>
 </div>
-<a href="/demo/#sps-verispec">Request demo</a>
+<a href="/projects/sps-verispec/">View project</a>
 </article>
 </section>

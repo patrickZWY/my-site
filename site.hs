@@ -133,6 +133,9 @@ pageRoute identifier =
     case takeBaseName (toFilePath identifier) of
         "index" -> "index.html"
         "404" -> "404.html"
+        "tla-finance" -> "projects/tla-finance/index.html"
+        "price-manipulation" -> "projects/price-manipulation/index.html"
+        "sps-verispec" -> "projects/sps-verispec/index.html"
         page -> page <> "/index.html"
 
 isSitemapPage :: Item String -> Bool

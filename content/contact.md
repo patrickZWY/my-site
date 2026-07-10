@@ -3,6 +3,7 @@ title: Contact
 description: Contact links for Zheng Wangyuan (Patrick).
 canonicalPath: /contact/
 bodyClass: contact
+navContact: true
 ---
 
 <section class="page-header" aria-labelledby="contact-title">
@@ -11,9 +12,9 @@ bodyClass: contact
 </section>
 
 <section class="contact-list" aria-label="Contact links">
-<a href="mailto:zhengwangyuan.icarus@gmail.com?subject=Demo%20request">
+<a href="mailto:hello@zhengwangyuan-patrick.com?subject=Website%20inquiry">
 <span>Email</span>
-<strong>zhengwangyuan.icarus@gmail.com</strong>
+<strong>hello@zhengwangyuan-patrick.com</strong>
 </a>
 <a href="https://github.com/patrickZWY">
 <span>GitHub</span>
@@ -21,6 +22,6 @@ bodyClass: contact
 </a>
 <a href="/demo/">
 <span>Demo status</span>
-<strong>Runs live by appointment from a local environment</strong>
+<strong>Demo available by request</strong>
 </a>
 </section>

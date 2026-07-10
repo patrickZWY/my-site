@@ -1,4 +1,4 @@
-const OWNER_EMAIL = "zhengwangyuan.icarus@gmail.com";
+const OWNER_EMAIL = "hello@zhengwangyuan-patrick.com";
 const GATEWAY_FAILURE_STATUSES = new Set([502, 503, 504, 521, 522, 523, 524, 530]);
 const DEMOS = {
   "demo.zhengwangyuan-patrick.com": {
@@ -45,7 +45,7 @@ function offlineResponse(request, demo) {
 
   if (request.method !== "GET" && request.method !== "HEAD" && !acceptsHtml) {
     return new Response(
-      `The ${demo.name} live demo server is currently offline. Contact ${OWNER_EMAIL} to request access or schedule a walkthrough.`,
+      `The ${demo.name} demo is available by request. Contact ${OWNER_EMAIL} to schedule a walkthrough.`,
       {
         status: 503,
         headers: {
@@ -72,7 +72,7 @@ function offlineHtml(demo) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Demo Offline</title>
+  <title>Demo available by request</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -146,11 +146,10 @@ function offlineHtml(demo) {
 </head>
 <body>
   <main>
-    <p class="eyebrow">Demo offline</p>
-    <h1>${demo.name} is currently offline.</h1>
-    <p>This demo runs from the owner's local environment and is only available during scheduled walkthroughs.</p>
-    <p>Contact the owner for access or to schedule a live demo.</p>
-    <a class="button" href="mailto:${OWNER_EMAIL}?subject=${subject}">Email ${OWNER_EMAIL}</a>
+    <p class="eyebrow">Guided walkthrough</p>
+    <h1>${demo.name} is available by request.</h1>
+    <p>Contact me to schedule a guided walkthrough.</p>
+    <a class="button" href="mailto:${OWNER_EMAIL}?subject=${subject}">Request a demo</a>
   </main>
 </body>
 </html>`;
