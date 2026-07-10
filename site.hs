@@ -63,6 +63,7 @@ privateStudyContext =
         <> constField "canonicalPath" "/rabbithole/"
         <> constField "bodyClass" "private-study"
         <> field "guideBody" (\_ -> itemBody <$> load (fromFilePath "study-materials/agent.md"))
+        <> field "luaStudyPlanBody" (\_ -> itemBody <$> load (fromFilePath "study-materials/lua-study-plan.md"))
         <> listField "studyEntries" studyEntryContext (mapM load studyMaterialIds)
         <> listField "compilerStudyEntries" studyEntryContext (mapM load compilerStudyIds)
         <> siteContext
