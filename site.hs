@@ -87,6 +87,7 @@ studyMaterialIds =
         , "study-materials/study-oprofile.md"
         , "study-materials/bentoml-study.md"
         , "study-materials/pony-study.md"
+        , "study-materials/study-bub.md"
         ]
 
 compilerStudyIds :: [Identifier]
@@ -112,6 +113,7 @@ studyNavTitleFor identifier =
         "study-oprofile" -> "OProfile"
         "bentoml-study" -> "BentoML"
         "pony-study" -> "Pony ORM"
+        "study-bub" -> "Bub"
         "study-lua" -> "Lua"
         "study-ryujit" -> "RyuJIT"
         baseName -> baseName
