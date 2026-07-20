@@ -12,6 +12,14 @@ navFun: true
 </section>
 
 <section class="project-list" aria-label="Fun project list">
+<article class="project-row" id="dice-throw">
+<div>
+<p class="project-kicker">Kinetic poetry</p>
+<h2>A Dice Throw</h2>
+<p>Mallarmé’s poem drifts upward as a continuous field of type—part reading, part moving image.</p>
+</div>
+<a href="/poem/">Watch the poem</a>
+</article>
 <article class="project-row" id="archipelago">
 <div>
 <p class="project-kicker">Movie graph and social discovery</p>

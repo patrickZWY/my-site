@@ -775,6 +775,174 @@ body.private-study .site-shell {
   font-size: 0.92rem;
 }
 
+/* The poem is staged as a self-contained screening room inside the site. */
+body.poem-page .site-main {
+  width: 100%;
+  padding: 0;
+}
+
+.poem-screening {
+  min-height: calc(100vh - 89px);
+  padding: clamp(2rem, 5vw, 4.5rem) max(18px, calc((100vw - 1120px) / 2));
+  color: #f5f0e6;
+  background:
+    linear-gradient(180deg, rgba(7, 9, 12, 0.38), rgba(7, 9, 12, 0.88)),
+    radial-gradient(circle at 28% 18%, #66584a 0, #242730 38%, #090b0f 78%);
+}
+
+.poem-screening-header {
+  display: flex;
+  max-width: 1120px;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto 1.4rem;
+}
+
+.poem-screening-header h1 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(2.35rem, 6vw, 4.8rem);
+}
+
+.poem-screening-header .eyebrow,
+.poem-screening-note {
+  color: #c8bdab;
+}
+
+.poem-screening-note {
+  max-width: 33rem;
+  margin: 0.7rem 0 0;
+}
+
+.poem-controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+}
+
+.poem-control {
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(245, 240, 230, 0.5);
+  border-radius: 999px;
+  color: #f5f0e6;
+  background: rgba(9, 11, 15, 0.55);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.poem-control:hover {
+  background: rgba(245, 240, 230, 0.14);
+}
+
+.poem-frame {
+  position: relative;
+  height: min(70vh, 760px);
+  min-height: 470px;
+  max-width: 1120px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(245, 240, 230, 0.2);
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+    #090b0f;
+  background-size: 25% 100%;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+}
+
+.poem-frame::before,
+.poem-frame::after {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: 16%;
+  pointer-events: none;
+  content: "";
+}
+
+.poem-frame::before {
+  top: 0;
+  background: linear-gradient(#090b0f, transparent);
+}
+
+.poem-frame::after {
+  bottom: 0;
+  background: linear-gradient(transparent, #090b0f);
+}
+
+.rolling-poem {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding: 0 2rem;
+  color: #f8f4eb;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: clamp(0.72rem, 1.55vw, 1.18rem);
+  font-style: normal;
+  line-height: 1.48;
+  text-align: left;
+  white-space: pre;
+  animation: poem-roll 400s linear infinite;
+}
+
+.rolling-poem.is-paused {
+  animation-play-state: paused;
+}
+
+.rolling-poem .large {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.rolling-poem .extreme-large {
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
+.rolling-poem .italic {
+  font-style: italic;
+}
+
+.rolling-poem .italic-large {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.rolling-poem .italic-extreme-large {
+  font-size: 2.5em;
+  font-style: italic;
+}
+
+@keyframes poem-roll {
+  from { transform: translateX(-50%) translateY(70vh); }
+  to { transform: translateX(-50%) translateY(calc(-100% - 70vh)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poem-frame {
+    overflow: auto;
+  }
+
+  .rolling-poem {
+    position: static;
+    transform: none;
+    animation: none;
+  }
+
+  .poem-controls {
+    display: none;
+  }
+}
+
 .footer-inner {
   display: flex;
   min-height: 88px;
@@ -941,5 +1109,14 @@ body.private-study .site-shell {
 
   .private-gate-panel h1 {
     font-size: 2.4rem;
+  }
+
+  .poem-screening-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .poem-frame {
+    min-height: 60vh;
   }
 }
