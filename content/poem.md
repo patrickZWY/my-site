@@ -3,7 +3,6 @@ title: A Dice Throw
 description: A kinetic rendering of Stéphane Mallarmé’s poem A Dice Throw Never Will Abolish Chance.
 canonicalPath: /poem/
 bodyClass: poem-page
-navPoem: true
 poemPage: true
 ---
 
