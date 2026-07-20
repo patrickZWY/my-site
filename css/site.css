@@ -786,8 +786,8 @@ body.poem-page .site-main {
   padding: clamp(2rem, 5vw, 4.5rem) max(18px, calc((100vw - 1120px) / 2));
   color: #f5f0e6;
   background:
-    linear-gradient(180deg, rgba(7, 9, 12, 0.38), rgba(7, 9, 12, 0.88)),
-    radial-gradient(circle at 28% 18%, #66584a 0, #242730 38%, #090b0f 78%);
+    linear-gradient(180deg, rgba(2, 7, 10, 0.68), rgba(2, 8, 12, 0.2) 45%, rgba(2, 8, 12, 0.54)),
+    url("/poem-sea.webp") center / cover fixed no-repeat;
 }
 
 .poem-screening-header {
@@ -803,16 +803,12 @@ body.poem-page .site-main {
   max-width: none;
   margin: 0;
   font-size: clamp(2.35rem, 6vw, 4.8rem);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
 }
 
-.poem-screening-header .eyebrow,
-.poem-screening-note {
+.poem-screening-header .eyebrow {
   color: #c8bdab;
-}
-
-.poem-screening-note {
-  max-width: 33rem;
-  margin: 0.7rem 0 0;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 
 .poem-controls {
@@ -847,9 +843,7 @@ body.poem-page .site-main {
   overflow: hidden;
   border: 1px solid rgba(245, 240, 230, 0.2);
   border-radius: 4px;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-    #090b0f;
+  background: rgba(2, 8, 12, 0.3);
   background-size: 25% 100%;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
 }
@@ -867,12 +861,12 @@ body.poem-page .site-main {
 
 .poem-frame::before {
   top: 0;
-  background: linear-gradient(#090b0f, transparent);
+  background: linear-gradient(rgba(2, 8, 12, 0.92), transparent);
 }
 
 .poem-frame::after {
   bottom: 0;
-  background: linear-gradient(transparent, #090b0f);
+  background: linear-gradient(transparent, rgba(2, 8, 12, 0.92));
 }
 
 .rolling-poem {

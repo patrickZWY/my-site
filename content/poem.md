@@ -12,7 +12,6 @@ poemPage: true
 <div>
 <p class="eyebrow">A kinetic poem by Stéphane Mallarmé</p>
 <h1 id="poem-title">A Dice Throw</h1>
-<p class="poem-screening-note">The poem rises slowly through the frame. Pause it when a passage asks you to stay.</p>
 </div>
 <div class="poem-controls" aria-label="Poem playback controls">
 <button class="poem-control" type="button" data-poem-pause aria-pressed="false">Pause</button>
