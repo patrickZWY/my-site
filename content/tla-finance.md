@@ -10,9 +10,14 @@ navProjects: true
 <p class="eyebrow">Finance verification</p>
 <h1 id="project-title">TLA-Finance</h1>
 <p class="project-lede">A verification workbench for investigating suspicious outputs from an agentic finance system.</p>
+<dl class="project-meta">
+<div>
+<dt>Tools / methods</dt>
+<dd>TLA+</dd>
+</div>
+</dl>
 <div class="project-page-actions" aria-label="Project links">
 <a class="button" href="/demo/#tla-finance">Request a demo</a>
-<a href="/projects/">All projects</a>
 </div>
 </section>
 
@@ -40,6 +45,7 @@ navProjects: true
 <div>
 <ul class="project-detail-list">
 <li>Case-driven evaluations centered on suspicious Finance Agent outputs.</li>
+<li>A Choices construct for expressing and checking alternative Finance Agent decisions within the same verification case.</li>
 <li>Model-checking results that show which modeled constraints hold or fail for each example.</li>
 <li>An interactive walkthrough that explains a flagged output through its verification trace.</li>
 </ul>

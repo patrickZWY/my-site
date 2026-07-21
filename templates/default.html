@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$if(title)$$title$ | $endif$$siteTitle$</title>
   <meta name="description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="dark">
   <meta property="og:site_name" content="$siteTitle$">
   <meta property="og:title" content="$if(title)$$title$$else$$siteTitle$$endif$">
   <meta property="og:description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
@@ -21,13 +21,12 @@
   <header class="site-header">
     <div class="site-shell header-inner">
       <a class="brand" href="/" aria-label="$siteTitle$ home">
-        <img class="brand-mark" src="/mark.svg" alt="" width="34" height="34">
-        <span class="brand-text">$siteTitle$</span>
+        <span class="brand-text">Zheng Wangyuan</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="/projects/"$if(navProjects)$ aria-current="page"$endif$>Projects</a>
-        <a href="/fun/"$if(navFun)$ aria-current="page"$endif$>Fun</a>
         <a href="/writing/"$if(navWriting)$ aria-current="page"$endif$>Writing</a>
+        <a href="/#about">About</a>
         <a href="/contact/"$if(navContact)$ aria-current="page"$endif$>Contact</a>
       </nav>
     </div>
@@ -39,7 +38,8 @@
 
   <footer class="site-footer">
     <div class="site-shell footer-inner">
-      <span>&copy; 2026 Zheng Wangyuan (Patrick)</span>
+      <span>&copy; 2026 Zheng Wangyuan</span>
+      <a href="/fun/">Experiments</a>
     </div>
   </footer>
   $if(poemPage)$<script src="/poem.js"></script>$endif$

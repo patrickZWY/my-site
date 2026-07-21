@@ -10,10 +10,15 @@ navProjects: true
 <p class="eyebrow">Automated testing</p>
 <h1 id="project-title">SPS-VeriSpec</h1>
 <p class="project-lede">A Python tool that reads source code, uses Soufflé rules to find useful relationships, and turns the strongest results into pytest tests.</p>
+<dl class="project-meta">
+<div>
+<dt>Tools / methods</dt>
+<dd>Soufflé · Program analysis</dd>
+</div>
+</dl>
 <div class="project-page-actions" aria-label="Project links">
 <a class="button" href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
 <a href="/demo/#sps-verispec">Request a demo</a>
-<a href="/projects/">All projects</a>
 </div>
 </section>
 

@@ -5,46 +5,35 @@ canonicalPath: /
 bodyClass: home
 ---
 
-<section class="intro" aria-labelledby="intro-title">
+<section class="intro" id="about" aria-labelledby="intro-title">
 <p class="eyebrow">Systems, formal methods, and finance engineering</p>
-<h1 id="intro-title">Zheng Wangyuan (Patrick)</h1>
-<p>I design practical verification methods for financial and systems software, combining model checking, program analysis, and evidence from real failures. My goal is to turn concrete risks into checks engineers can actually use.</p>
-<div class="intro-actions" aria-label="Primary links">
-<a class="button" href="/projects/">View projects</a>
-<a class="button button-secondary" href="/contact/">Get in touch</a>
-</div>
+<h1 id="intro-title">I design practical verification methods for financial and systems software.</h1>
+<p class="intro-note">I combine model checking, program analysis, and evidence from real failures to turn concrete risks into checks engineers can actually use.</p>
 </section>
 
-<section class="section-block" aria-labelledby="work-title">
-<div class="section-heading">
-<h2 id="work-title">Selected Projects</h2>
+<section class="home-work" aria-labelledby="work-title">
+<div class="home-work-heading">
+<h2 id="work-title">Selected work</h2>
 <a href="/projects/">All projects</a>
 </div>
-<div class="project-grid">
-<article class="project-card">
-<p class="project-kicker">Demo available by request</p>
-<h3>Finance Agent output verification</h3>
-<p>Model checking and trace-based analysis for investigating suspicious outputs from an agentic finance system.</p>
-<a href="/projects/tla-finance/">View project</a>
+<div class="home-project-list">
+<article class="home-project">
+<span class="home-project-number" aria-hidden="true">01</span>
+<h3><a href="/projects/tla-finance/">TLA-Finance</a></h3>
+<p>Formal models and trace-based analysis for investigating suspicious outputs from an agentic finance system.</p>
+<span class="home-project-arrow" aria-hidden="true">&rarr;</span>
 </article>
-<article class="project-card">
-<p class="project-kicker">Smart contract security</p>
-<h3>Checking Smart Contracts for Price Manipulation Attacks</h3>
+<article class="home-project">
+<span class="home-project-number" aria-hidden="true">02</span>
+<h3><a href="/projects/price-manipulation/">Price Manipulation</a></h3>
 <p>I check whether manipulated AMM or oracle prices can push a contract into unsafe behavior.</p>
-<a href="/projects/price-manipulation/">View methodology</a>
+<span class="home-project-arrow" aria-hidden="true">&rarr;</span>
 </article>
-<article class="project-card">
-<p class="project-kicker">Automated testing</p>
-<h3>SPS-VeriSpec</h3>
+<article class="home-project">
+<span class="home-project-number" aria-hidden="true">03</span>
+<h3><a href="/projects/sps-verispec/">SPS-VeriSpec</a></h3>
 <p>A Python tool that reads source code, uses Soufflé rules to connect what it finds, and turns the strongest results into pytest tests.</p>
-<a href="/projects/sps-verispec/">View project</a>
+<span class="home-project-arrow" aria-hidden="true">&rarr;</span>
 </article>
-</div>
-</section>
-
-<section class="section-block" aria-labelledby="areas-title">
-<div>
-<h2 id="areas-title">Areas of Work</h2>
-<p>Verification of suspicious Finance Agent outputs, automated test generation from program facts, and practical verification methods for DeFi vulnerabilities.</p>
 </div>
 </section>

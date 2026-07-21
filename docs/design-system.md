@@ -6,10 +6,17 @@ interaction model.
 
 ## Core Direction
 
-The site should feel technical, calm, readable, and deliberate. It is not a
-marketing landing page. Favor clear hierarchy, strong reading rhythm, and
-interfaces that help visitors move through dense material without losing
-context.
+The site should feel calm, literate, readable, and deliberate. Its cinematic
+influence comes from pacing, attention, and tonal contrast rather than themed
+decoration. It is not a marketing landing page. Favor clear hierarchy, strong
+reading rhythm, and interfaces that help visitors move through dense material
+without losing context.
+
+The public site uses a quiet graphite palette, warm off-white text, restrained
+rules, and generous negative space. Avoid cards, rounded SaaS components,
+technical schematics, heavy grain, and oversized display typography. On project
+lists, hover and keyboard focus may bring one item forward while the remaining
+items recede slightly; all content must remain readable.
 
 Use generous spacing by default:
 
