@@ -1,0 +1,482 @@
+:root {
+  color-scheme: dark;
+  --bg: #191a19;
+  --well: #0f100f;
+  --raise: #1e201e;
+  --text: #e7e3dc;
+  --muted: #aaa69f;
+  --quiet: #817e78;
+  --faint: #4a4c49;
+  --line: #353634;
+  --accent: #c3b4a2;
+  --accent-strong: #eee9e1;
+  --mark: #b76a5f;
+  --index: 34vw;
+  --stage: #212320;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
+a:hover { color: var(--accent-strong); }
+:focus-visible { outline: 2px solid var(--mark); outline-offset: 4px; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 20;
+  transform: translateY(-160%);
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--raise);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.rig {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 3.25rem 1fr 4.5rem;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.34), transparent 14%, transparent 82%, rgba(0,0,0,0.4)),
+    var(--bg);
+}
+
+/* ---------- upper register: the alphabet ring ---------- */
+.topbar {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+  border-bottom: 1px solid var(--line);
+  background: var(--well);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0 1.5rem 0 2rem;
+  border-right: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  background: var(--well);
+  cursor: pointer;
+  border-top: 0; border-left: 0; border-bottom: 0;
+  transition: color 200ms ease;
+}
+.brand:hover { color: var(--accent-strong); }
+.brand em { font-style: normal; color: var(--faint); letter-spacing: 0.14em; }
+
+.ring {
+  position: relative;
+  overflow: hidden;
+  contain: layout paint style;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.ring-strip {
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  color: var(--faint);
+  will-change: transform;
+}
+
+/* ---------- the track ---------- */
+.track {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* No scroll-snap. Turning it off to drag and back on to settle made the
+     browser re-snap instantly the moment it was re-enabled — an unanimated
+     jump at the end of every gesture. Settling is animated in script now.
+     scroll-padding-left stays as the single source of the index offset. */
+  scroll-padding-left: var(--index);
+  scroll-behavior: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+.track::-webkit-scrollbar { display: none; }
+.track.is-dragging { cursor: grabbing; }
+.track.is-dragging a { pointer-events: none; }
+
+.spacer { flex: 0 0 var(--index); height: 1px; }
+.spacer-end { flex: 0 0 calc(100vw - var(--index) - 4rem); }
+
+.panel {
+  /* --lit is written per-frame from the scroll position. Every colour below
+     is mixed toward the page ground by that amount, so a section recedes
+     without any filter or opacity — text keeps subpixel antialiasing and
+     stays sharp at every stage of the roll. */
+  --lit: 1;
+  --mix: calc((0.13 + 0.87 * var(--lit)) * 100%);
+  --c-text: color-mix(in oklab, var(--text) var(--mix), var(--bg));
+  --c-muted: color-mix(in oklab, var(--muted) var(--mix), var(--bg));
+  --c-quiet: color-mix(in oklab, var(--quiet) var(--mix), var(--bg));
+  --c-faint: color-mix(in oklab, var(--faint) var(--mix), var(--bg));
+  --c-line: color-mix(in oklab, var(--line) var(--mix), var(--bg));
+  --c-accent: color-mix(in oklab, var(--accent) var(--mix), var(--bg));
+  --c-strong: color-mix(in oklab, var(--accent-strong) var(--mix), var(--bg));
+  color: var(--c-text);
+  flex: 0 0 auto;
+  padding: 0 4.5rem 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.panel[data-kind="about"] { width: 42ch; }
+.panel[data-kind="project"] { width: 40ch; }
+.panel[data-kind="writing"] { width: 38ch; }
+.panel[data-kind="contact"] { width: 36ch; }
+
+/* the reading light: only what sits at the reading position stays lit */
+.veil {
+  position: absolute;
+  top: 3.25rem;
+  bottom: 4.5rem;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 11, 10, 0.62) 0%,
+    rgba(10, 11, 10, 0.5) calc(var(--index) - 7rem),
+    rgba(10, 11, 10, 0.1) calc(var(--index) - 3rem),
+    rgba(10, 11, 10, 0) calc(var(--index) - 0.25rem),
+    rgba(10, 11, 10, 0) calc(var(--index) + 30rem),
+    rgba(10, 11, 10, 0.42) calc(var(--index) + 36rem),
+    rgba(10, 11, 10, 0.68) 100%
+  );
+}
+
+/* Surface lift, owned by the section rather than by the reading position.
+   `right: 4.5rem` stops it dead at this column's right edge — the panel's own
+   trailing padding — so it never runs on under the section that follows.
+   Flat fill, so type renders on a solid colour and stays sharp. */
+.panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -1.5rem;
+  right: 4.5rem;
+  top: 0;
+  bottom: 0;
+  /* fixed gradient, varying alpha. Mixing the colour instead meant
+     re-rasterising a full-height gradient on every frame of the roll. */
+  background: linear-gradient(180deg, transparent, var(--stage) 9%, var(--stage) 91%, transparent);
+  opacity: var(--lit);
+}
+
+/* the leading edge of that surface */
+.panel::after {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 13%;
+  bottom: 13%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line) 22%, var(--line) 78%, transparent);
+  opacity: var(--lit);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-quiet);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 1.75rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+}
+.code b { color: var(--c-strong); font-weight: 400; }
+
+.panel h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+.panel h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  text-wrap: balance;
+}
+.panel h2 a { color: inherit; text-decoration: none; }
+.panel h2 a:hover { color: var(--c-strong); }
+
+/* Focus reads as weight, not glow. The serif stack has no 500, so a hairline
+   stroke in the text's own colour gives a true intermediate weight instead of
+   jumping to bold; the sans picks up its real Medium. */
+.panel[data-focus="1"] h1,
+.panel[data-focus="1"] h2 {
+  -webkit-text-stroke: 0.4px currentColor;
+  text-stroke: 0.4px currentColor;
+}
+.panel[data-focus="1"] p.lede,
+.panel[data-focus="1"] .facts dd,
+.panel[data-focus="1"] .rows strong { font-weight: 500; }
+.panel[data-focus="1"] .code,
+.panel[data-focus="1"] .eyebrow { font-weight: 500; }
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin: 0 0 1rem;
+}
+.panel p.body { color: var(--c-muted); margin: 0 0 1.1rem; }
+.panel p.lede { color: var(--c-text); margin: 0 0 1.4rem; }
+
+.facts {
+  margin: 1.6rem 0 0;
+  border-top: 1px solid var(--c-line);
+  display: grid;
+  gap: 0;
+}
+.facts div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-quiet);
+}
+.facts dd { margin: 0; color: var(--c-text); font-size: 0.95rem; }
+
+.open {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--c-faint);
+  padding-bottom: 0.45rem;
+  width: fit-content;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.open:hover { color: var(--c-strong); border-color: var(--c-accent); }
+.open + .open { margin-top: 0.85rem; }
+.open .glyph { display: inline-block; transition: transform 240ms ease; }
+.open:hover .glyph { transform: translateX(4px); }
+
+/* the hidden door — quiet until you look straight at it */
+.secret-entry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  align-self: center;
+  width: 60px;
+  height: 75px;
+  margin-top: 3.25rem;
+  opacity: calc(0.48 * var(--lit));
+  filter: grayscale(0.2);
+  transition: opacity 160ms ease, transform 160ms ease, filter 160ms ease;
+}
+.secret-entry:hover,
+.secret-entry:focus-visible {
+  opacity: var(--lit);
+  filter: grayscale(0);
+  transform: translateY(-2px);
+}
+.secret-entry img,
+.secret-entry svg { width: 60px; height: 75px; display: block; }
+
+.rh-mark .ink { fill: none; stroke: #171512; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.rh-mark .thin { fill: none; stroke: #171512; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rh-mark .paper { fill: #f8f1e5; }
+.rh-mark .teal { fill: #1f5e56; }
+.rh-mark .snake { fill: none; stroke: #1f5e56; stroke-width: 4.6; stroke-linecap: round; stroke-linejoin: round; }
+.rh-mark .snake-shadow { fill: none; stroke: #171512; stroke-width: 7.2; stroke-linecap: round; stroke-linejoin: round; }
+.rh-mark .staff { fill: none; stroke: #e5b94d; stroke-width: 4.8; stroke-linecap: round; }
+
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+.plain li { color: var(--c-muted); padding-left: 1.1rem; position: relative; }
+.plain li::before { content: "—"; position: absolute; left: 0; color: var(--c-faint); }
+
+.rows { display: grid; border-top: 1px solid var(--c-line); }
+.rows a {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--c-line);
+  text-decoration: none;
+  color: var(--c-text);
+}
+.rows a:hover { color: var(--c-strong); }
+.rows span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-quiet);
+}
+.rows strong { font-weight: 400; font-size: 0.98rem; }
+
+/* ---------- lower register: the gauge ---------- */
+.gauge {
+  position: relative;
+  contain: layout paint style;
+  border-top: 1px solid var(--line);
+  background: var(--well);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 2rem;
+  overflow: hidden;
+}
+.gauge-ticks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+.gauge-ticks i { display: block; width: 1px; height: 7px; background: var(--faint); flex: 0 0 auto; }
+
+.disks { display: flex; gap: 0.35rem; position: relative; z-index: 2; }
+.disk {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--quiet);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.disk:hover { color: var(--text); }
+.disk[aria-current="true"] { color: var(--accent-strong); border-color: var(--faint); }
+
+.readout {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.readout b { color: var(--accent); font-weight: 400; }
+
+.hint {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+  transition: opacity 600ms ease;
+}
+.hint[data-off="1"] { opacity: 0; }
+
+/* ---------- project sheet: "its own page" ---------- */
+
+@media (max-width: 900px) {
+  :root { --index: 16vw; }
+  .rig { grid-template-rows: 2.75rem 1fr 4rem; }
+  .veil { top: 2.75rem; bottom: 4rem; }
+  .veil {
+    background: linear-gradient(
+      90deg,
+      rgba(10, 11, 10, 0.88) 0%,
+      rgba(10, 11, 10, 0) calc(var(--index) - 0.25rem),
+      rgba(10, 11, 10, 0) 78%,
+      rgba(10, 11, 10, 0.86) 100%
+    );
+  }
+  .brand { padding: 0 1rem; font-size: 0.66rem; letter-spacing: 0.14em; }
+  .brand em { display: none; }
+  .panel { padding-right: 3rem; }
+  .panel[data-kind="about"] { width: min(78vw, 44ch); }
+  .panel[data-kind="project"],
+  .panel[data-kind="writing"],
+  .panel[data-kind="contact"] { width: min(78vw, 36ch); }
+  .facts div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .gauge { padding: 0 1rem; gap: 1rem; }
+  .hint { display: none; }
+  .readout .slot { display: none; }
+}
+
+@media (max-height: 640px) {
+  .secret-entry { margin-top: 1.75rem; width: 46px; height: 58px; }
+  .secret-entry img,
+  .secret-entry svg { width: 46px; height: 58px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { scroll-behavior: auto; }
+  .ring-strip, .gauge-ticks { transform: none; }
+  .panel { transition: none; }
+  .open span { transition: none; }
+}

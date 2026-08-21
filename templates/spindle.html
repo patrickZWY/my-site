@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$siteTitle$</title>
+  <meta name="description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:site_name" content="$siteTitle$">
+  <meta property="og:title" content="$siteTitle$">
+  <meta property="og:description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="$siteUrl$$canonicalPath$">
+  <meta property="og:image" content="$siteUrl$/og-image.svg">
+  <link rel="canonical" href="$siteUrl$$canonicalPath$">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/spindle.css">
+</head>
+<body class="spindle">
+  <a class="skip-link" href="#track">Skip to content</a>
+
+  <div class="rig">
+    <div class="topbar">
+      <button class="brand" id="brand" type="button">Zheng Wangyuan <em>&mdash; Patrick</em></button>
+      <div class="ring" aria-hidden="true"><div class="ring-strip" id="ringStrip"></div></div>
+    </div>
+
+    <div class="veil" aria-hidden="true"></div>
+
+    <main class="track" id="track" tabindex="0" role="region" aria-label="Sections, scroll horizontally">
+      <div class="spacer" aria-hidden="true"></div>
+
+      <section class="panel" data-kind="about" data-code="00" data-name="About" id="about">
+        <p class="code"><b>00</b> <span>About</span></p>
+        <p class="eyebrow">Systems, formal methods, and finance engineering</p>
+        <h1>I design practical verification methods for financial and systems software.</h1>
+        <p class="body">I combine model checking, program analysis, and evidence from real failures to turn concrete risks into checks engineers can actually use.</p>
+        <dl class="facts">
+          <div><dt>Methods</dt><dd>TLA+ &middot; Souffl&eacute; &middot; Program analysis</dd></div>
+          <div><dt>Working on</dt><dd>Verification for agentic finance systems</dd></div>
+          <div><dt>Demos</dt><dd>Available by request</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" data-kind="project" data-code="01" data-name="TLA-Finance">
+        <p class="code"><b>01</b> <span>Finance verification</span></p>
+        <h2><a href="/projects/tla-finance/">TLA-Finance</a></h2>
+        <p class="lede">A verification workbench for investigating suspicious outputs from an agentic finance system.</p>
+        <p class="body">Formal models and trace-based analysis that connect a violated constraint back to the output and the state that produced it.</p>
+        <a class="open" href="/projects/tla-finance/">Open project <span class="glyph">&rarr;</span></a>
+      </section>
+
+      <section class="panel" data-kind="project" data-code="02" data-name="Price Manipulation">
+        <p class="code"><b>02</b> <span>Smart contract security</span></p>
+        <h2><a href="/projects/price-manipulation/">Checking Smart Contracts for Price Manipulation</a></h2>
+        <p class="lede">A practical way to find out whether someone can trick a contract by manipulating a market price.</p>
+        <p class="body">Some contracts act on prices an attacker can influence. Even a short-lived change can push the contract into an unsafe action.</p>
+        <a class="open" href="/projects/price-manipulation/">Open project <span class="glyph">&rarr;</span></a>
+      </section>
+
+      <section class="panel" data-kind="project" data-code="03" data-name="SPS-VeriSpec">
+        <p class="code"><b>03</b> <span>Self-evolving test suites</span></p>
+        <h2><a href="/projects/sps-verispec/">SPS-VeriSpec</a></h2>
+        <p class="lede">A test suite that evolves into the program&rsquo;s ground truth &mdash; an executable record of what the code actually does.</p>
+        <p class="body">Each cycle mines new oracles from the program&rsquo;s own structure and keeps only the ones that survive validation. The trusted suite accumulates; unproven candidates stay quarantined until a human promotes them.</p>
+        <a class="open" href="/projects/sps-verispec/">Open project <span class="glyph">&rarr;</span></a>
+        <a class="open" href="/projects/">All projects <span class="glyph">&rarr;</span></a>
+      </section>
+
+      <section class="panel" data-kind="writing" data-code="04" data-name="Writing">
+        <p class="code"><b>04</b> <span>Notes</span></p>
+        <h2><a href="/writing/">Writing</a></h2>
+        <p class="body">Planned topics:</p>
+        <ul class="plain">
+          <li>Practical TLA+ modeling patterns.</li>
+          <li>Counterexample analysis for financial protocols.</li>
+          <li>Deploying small technical demos without overbuilding.</li>
+        </ul>
+        <a class="secret-entry" href="/rabbithole/?gate=1" aria-label="Enter Rabbit Hole">
+          <img src="/rabbithole-mark.svg" alt="" width="60" height="75">
+        </a>
+      </section>
+
+      <section class="panel" data-kind="contact" data-code="05" data-name="Contact">
+        <p class="code"><b>05</b> <span>Contact</span></p>
+        <h2>Get in touch</h2>
+        <div class="rows">
+          <a href="mailto:hello@zhengwangyuan-patrick.com?subject=Website%20inquiry"><span>Email</span><strong>hello@zhengwangyuan-patrick.com</strong></a>
+          <a href="https://github.com/patrickZWY"><span>GitHub</span><strong>github.com/patrickZWY</strong></a>
+          <a href="/demo/"><span>Demos</span><strong>Available by request</strong></a>
+          <a href="/fun/"><span>Experiments</span><strong>Playful demos and small things</strong></a>
+        </div>
+      </section>
+
+      <div class="spacer spacer-end" aria-hidden="true"></div>
+    </main>
+
+    <nav class="gauge" aria-label="Section position">
+      <div class="gauge-ticks" id="ticks" aria-hidden="true"></div>
+      <div class="disks" id="disks"></div>
+      <p class="hint" id="hint">Drag &middot; scroll &middot; &larr; &rarr;</p>
+      <p class="readout"><span class="slot">Index</span> <b id="readoutName">About</b></p>
+    </nav>
+  </div>
+
+  <script src="/spindle.js"></script>
+</body>
+</html>
