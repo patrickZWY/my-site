@@ -150,9 +150,14 @@ a:hover { color: var(--accent-strong); }
   --c-line: color-mix(in oklab, var(--line) var(--mix), var(--bg));
   --c-accent: color-mix(in oklab, var(--accent) var(--mix), var(--bg));
   --c-strong: color-mix(in oklab, var(--accent-strong) var(--mix), var(--bg));
+  /* the column's trailing gutter, and how far the surface behind it is nudged
+     right of the text. Both are read by ::before/::after below, so a
+     breakpoint that changes the gutter moves the surface with it. */
+  --gutter: 4.5rem;
+  --surface-shift: 0.75rem;
   color: var(--c-text);
   flex: 0 0 auto;
-  padding: 0 4.5rem 0 0;
+  padding: 0 var(--gutter) 0 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -186,15 +191,17 @@ a:hover { color: var(--accent-strong); }
 }
 
 /* Surface lift, owned by the section rather than by the reading position.
-   `right: 4.5rem` stops it dead at this column's right edge — the panel's own
-   trailing padding — so it never runs on under the section that follows.
+   It stays inside the column's trailing gutter, so it never runs on under the
+   section that follows — but it is nudged --surface-shift right of the text so
+   both edges clear it by that much. Sitting flush on the text edge meant a
+   full-width line (the contact address) rendered past the lit surface.
    Flat fill, so type renders on a solid colour and stays sharp. */
 .panel::before {
   content: "";
   position: absolute;
   z-index: -1;
-  left: -1.5rem;
-  right: 4.5rem;
+  left: calc(var(--surface-shift) - 1.5rem);
+  right: calc(var(--gutter) - var(--surface-shift));
   top: 0;
   bottom: 0;
   /* fixed gradient, varying alpha. Mixing the colour instead meant
@@ -207,7 +214,7 @@ a:hover { color: var(--accent-strong); }
 .panel::after {
   content: "";
   position: absolute;
-  left: -1.5rem;
+  left: calc(var(--surface-shift) - 1.5rem);
   top: 13%;
   bottom: 13%;
   width: 1px;
@@ -457,7 +464,7 @@ a:hover { color: var(--accent-strong); }
   }
   .brand { padding: 0 1rem; font-size: 0.66rem; letter-spacing: 0.14em; }
   .brand em { display: none; }
-  .panel { padding-right: 3rem; }
+  .panel { --gutter: 3rem; }
   .panel[data-kind="about"] { width: min(78vw, 44ch); }
   .panel[data-kind="project"],
   .panel[data-kind="writing"],
