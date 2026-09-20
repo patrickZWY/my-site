@@ -168,6 +168,7 @@ a:hover { color: var(--accent-strong); }
 .panel[data-kind="project"] { width: 40ch; }
 .panel[data-kind="writing"] { width: 38ch; }
 .panel[data-kind="contact"] { width: 36ch; }
+.panel[data-kind="service"] { width: 38ch; }
 
 /* the reading light: only what sits at the reading position stays lit */
 .veil {
@@ -468,7 +469,8 @@ a:hover { color: var(--accent-strong); }
   .panel[data-kind="about"] { width: min(78vw, 44ch); }
   .panel[data-kind="project"],
   .panel[data-kind="writing"],
-  .panel[data-kind="contact"] { width: min(78vw, 36ch); }
+  .panel[data-kind="contact"],
+  .panel[data-kind="service"] { width: min(78vw, 36ch); }
   .facts div { grid-template-columns: 1fr; gap: 0.15rem; }
   .gauge { padding: 0 1rem; gap: 1rem; }
   .hint { display: none; }
