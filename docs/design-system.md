@@ -91,7 +91,7 @@ requests to old internal private asset paths must return `404`.
 The home page is the one place that departs from the reading-first direction
 above, on the grounds the Core Direction allows: it has a clearly different
 interaction model. It is a horizontal roll of sections rather than a document —
-about, three projects, writing, contact, service and community — laid out left to right and dragged
+about, three projects, writing, service and community, contact — laid out left to right and dragged
 past a fixed reading position. Everything else on the site stays a normal page,
 and the roll links out to those pages rather than reproducing them.
 
