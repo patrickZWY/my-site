@@ -16,7 +16,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Demo available by request</p>
 <h2>TLA-Finance</h2>
-<p>Formal models and an interactive walkthrough for investigating suspicious outputs from an agentic finance system.</p>
+<p>Uses TLA+ model checking to investigate and explain suspicious outputs from agentic finance systems.</p>
 </div>
 <a href="/projects/tla-finance/">View project</a>
 </article>
@@ -24,7 +24,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Smart contract security</p>
 <h2>Checking Smart Contracts for Price Manipulation Attacks</h2>
-<p>I check whether manipulated AMM or oracle prices can push a contract into unsafe behavior.</p>
+<p>Uses TLA+ model checking and program analysis to detect when manipulated AMM or oracle prices can push smart contracts into unsafe states.</p>
 </div>
 <a href="/projects/price-manipulation/">View methodology</a>
 </article>
@@ -32,7 +32,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Automated testing</p>
 <h2>SPS-VeriSpec</h2>
-<p>SPS-VeriSpec reads Python code, runs Soufflé rules over what it finds, and turns the strongest results into pytest tests. Uncertain results stay marked for review.</p>
+<p>Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
 </div>
 <a href="/projects/sps-verispec/">View project</a>
 </article>

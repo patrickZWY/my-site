@@ -18,7 +18,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Finance verification</p>
 <h2>TLA-Finance</h2>
-<p>Interactive investigation of suspicious Finance Agent outputs with supporting formal models. A guided walkthrough is available by request.</p>
+<p>Uses TLA+ model checking to investigate and explain suspicious outputs from agentic finance systems.</p>
 </div>
 <a href="https://demo.zhengwangyuan-patrick.com/">Check availability</a>
 </article>
@@ -26,7 +26,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Automated testing</p>
 <h2>SPS-VeriSpec Agent Workbench</h2>
-<p>A browser view showing how SPS-VeriSpec moves from Python code to Soufflé results, generated tests, validation, and items that still need review. A guided walkthrough is available by request.</p>
+<p>Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
 </div>
 <a href="https://sps-demo.zhengwangyuan-patrick.com/">Check availability</a>
 </article>

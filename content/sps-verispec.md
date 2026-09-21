@@ -1,6 +1,6 @@
 ---
 title: SPS-VeriSpec
-description: A Python tool that uses Soufflé rules to turn source-code facts into pytest tests.
+description: Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.
 canonicalPath: /projects/sps-verispec/
 bodyClass: project-detail-page
 navProjects: true
@@ -9,13 +9,7 @@ navProjects: true
 <section class="page-header project-page-header" aria-labelledby="project-title">
 <p class="eyebrow">Automated testing</p>
 <h1 id="project-title">SPS-VeriSpec</h1>
-<p class="project-lede">A Python tool that reads source code, uses Soufflé rules to find useful relationships, and turns the strongest results into pytest tests.</p>
-<dl class="project-meta">
-<div>
-<dt>Tools / methods</dt>
-<dd>Soufflé · Program analysis</dd>
-</div>
-</dl>
+<p class="project-lede">Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
 <div class="project-page-actions" aria-label="Project links">
 <a class="button" href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
 <a href="/demo/#sps-verispec">Request a demo</a>

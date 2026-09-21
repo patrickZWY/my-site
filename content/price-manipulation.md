@@ -1,6 +1,6 @@
 ---
 title: Checking Smart Contracts for Price Manipulation Attacks
-description: A practical way to check whether manipulated prices can push a smart contract into unsafe behavior.
+description: Uses TLA+ model checking and program analysis to detect price manipulation risks in smart contracts.
 canonicalPath: /projects/price-manipulation/
 bodyClass: project-detail-page
 navProjects: true
@@ -9,13 +9,7 @@ navProjects: true
 <section class="page-header project-page-header" aria-labelledby="project-title">
 <p class="eyebrow">Smart contract security</p>
 <h1 id="project-title">Checking Smart Contracts for Price Manipulation Attacks</h1>
-<p class="project-lede">A practical way to find out whether someone can trick a smart contract by manipulating a market price.</p>
-<dl class="project-meta">
-<div>
-<dt>Tools / methods</dt>
-<dd>TLA+</dd>
-</div>
-</dl>
+<p class="project-lede">Uses TLA+ model checking and program analysis to detect when manipulated AMM or oracle prices can push smart contracts into unsafe states.</p>
 <div class="project-page-actions" aria-label="Project links">
 <a class="button" href="mailto:hello@zhengwangyuan-patrick.com?subject=Price%20manipulation%20methodology">Request details</a>
 </div>
