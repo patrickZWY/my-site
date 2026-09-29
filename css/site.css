@@ -814,6 +814,24 @@ body.home .site-main {
    site that is not two inks. Leaving it still goes through START. */
 body.poem-page {
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* The poem's own header and controls keep their original sans face. */
+.poem-screening-header,
+.poem-control {
+  font-family: var(--font-sans);
+}
+
+.poem-screening-header h1 {
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+}
+
+.poem-screening-header .eyebrow {
+  font-weight: 500;
+  letter-spacing: 0.14em;
 }
 
 body.poem-page .site-main {
