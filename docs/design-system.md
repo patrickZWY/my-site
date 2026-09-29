@@ -7,7 +7,9 @@ the default direction for new pages.
 
 Two inks, one face, one-pixel rules. Everything on the site is `#000` or
 `#fff`. Tone is carried by weight, size, letter-spacing, and rules, never by a
-third colour, a gradient, a shadow, an image, or opacity on text. The face is
+third colour, a gradient, a shadow, an image, or opacity on text. The one
+exception is the poem page, which keeps its original screening-room style
+(photograph, serif, gradient) by request. The face is
 Azeret Mono at 300 for text, 400 for ledes, and 600 for headings and emphasis.
 Small labels are 11px uppercase with 0.12em tracking.
 

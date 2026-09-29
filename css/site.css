@@ -810,51 +810,110 @@ body.home .site-main {
   font-weight: 600;
 }
 
-/* ---------- the poem, screened in the same two inks ---------- */
+/* The poem keeps its original screening-room style: the one page on the
+   site that is not two inks. Leaving it still goes through START. */
+body.poem-page {
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
 
 body.poem-page .site-main {
-  padding-block: clamp(20px, 4vh, 40px) clamp(32px, 6vh, 64px);
+  padding: 0;
+}
+
+/* No site header over the poem: only the START button, floated top right. */
+body.poem-page .site-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+
+body.poem-page .header-inner {
+  justify-content: flex-end;
+  border-bottom: 0;
+}
+
+body.poem-page .brand {
+  display: none;
+}
+
+body.poem-page .forth-toggle {
+  border-color: rgba(245, 240, 230, 0.5);
+  color: #f5f0e6;
+  background: rgba(9, 11, 15, 0.55);
+}
+
+body.poem-page .forth-toggle:hover,
+body.poem-page .forth-toggle[aria-expanded="true"] {
+  color: var(--ground);
+  background: var(--ink);
+}
+
+body.poem-page .forth {
+  border: 1px solid var(--ink);
+}
+
+.poem-screening {
+  min-height: 100vh;
+  padding: calc(var(--header-h) + 8px) max(18px, calc((100vw - 1120px) / 2)) clamp(2rem, 5vw, 4.5rem);
+  color: #f5f0e6;
+  background:
+    linear-gradient(180deg, rgba(2, 7, 10, 0.68), rgba(2, 8, 12, 0.2) 45%, rgba(2, 8, 12, 0.54)),
+    url("/poem-sea.webp") center / cover fixed no-repeat;
 }
 
 .poem-screening-header {
   display: flex;
+  max-width: 1120px;
   align-items: end;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 20px;
+  gap: 2rem;
+  margin: 0 auto 1.4rem;
 }
 
 .poem-screening-header h1 {
+  max-width: none;
   margin: 0;
+  font-size: clamp(2.35rem, 6vw, 4.8rem);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
+}
+
+.poem-screening-header .eyebrow {
+  color: #c8bdab;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 
 .poem-controls {
   display: flex;
   flex: 0 0 auto;
-  gap: 8px;
+  gap: 0.65rem;
 }
 
 .poem-control {
-  padding: 4px 12px;
-  border: 1px solid var(--ink);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(245, 240, 230, 0.5);
+  border-radius: 999px;
+  color: #f5f0e6;
+  background: rgba(9, 11, 15, 0.55);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.poem-control:hover,
-.poem-control[aria-pressed="true"] {
-  color: var(--ground);
-  background: var(--ink);
+.poem-control:hover {
+  background: rgba(245, 240, 230, 0.14);
 }
 
 .poem-frame {
   position: relative;
   height: min(70vh, 760px);
   min-height: 470px;
+  max-width: 1120px;
+  margin-inline: auto;
   overflow: hidden;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
 }
 
 .rolling-poem {
@@ -864,11 +923,13 @@ body.poem-page .site-main {
   width: max-content;
   min-width: 100%;
   margin: 0;
-  padding: 0 24px;
-  font-family: var(--mono);
-  font-size: clamp(0.72rem, 1.4vw, 1.05rem);
-  font-weight: 300;
-  line-height: 1.5;
+  padding: 0 2rem;
+  color: #f8f4eb;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: clamp(0.72rem, 1.55vw, 1.18rem);
+  font-style: normal;
+  line-height: 1.48;
   text-align: left;
   white-space: pre;
   animation: poem-roll 400s linear infinite;
@@ -880,12 +941,12 @@ body.poem-page .site-main {
 
 .rolling-poem .large {
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .rolling-poem .extreme-large {
   font-size: 2.5em;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .rolling-poem .italic {
@@ -905,6 +966,29 @@ body.poem-page .site-main {
 @keyframes poem-roll {
   from { transform: translateX(-50%) translateY(70vh); }
   to { transform: translateX(-50%) translateY(calc(-100% - 70vh)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .poem-frame {
+    overflow: auto;
+  }
+
+  .rolling-poem {
+    position: static;
+    transform: none;
+    animation: none;
+  }
+
+  .poem-controls {
+    display: none;
+  }
 }
 
 /* ---------- responsive ---------- */
@@ -998,19 +1082,5 @@ body.poem-page .site-main {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .poem-frame {
-    overflow: auto;
-  }
-
-  .rolling-poem {
-    position: static;
-    transform: none;
-    animation: none;
-  }
-
-  .poem-controls {
-    display: none;
   }
 }
