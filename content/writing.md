@@ -3,11 +3,10 @@ title: Writing
 description: Placeholder writing index for notes and technical essays.
 canonicalPath: /writing/
 bodyClass: writing
-navWriting: true
 ---
 
 <section class="page-header" aria-labelledby="writing-title">
-<p class="eyebrow">Notes</p>
+<p class="eyebrow">3 &middot; Notes</p>
 <h1 id="writing-title">Writing</h1>
 </section>
 
@@ -19,9 +18,3 @@ navWriting: true
 <li>Deploying small technical demos without overbuilding.</li>
 </ul>
 </section>
-
-<div class="secret-entry-wrap" aria-label="Hidden entry">
-<a class="secret-entry" href="/rabbithole/?gate=1" aria-label="Enter Rabbit Hole">
-<img src="/rabbithole-mark.svg" alt="" width="88" height="110">
-</a>
-</div>

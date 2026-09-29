@@ -3,7 +3,6 @@ title: Demo
 description: Live demo availability and request link for Zheng Wangyuan (Patrick).
 canonicalPath: /demo/
 bodyClass: demo
-navProjects: true
 ---
 
 <section class="page-header" aria-labelledby="demo-title">
@@ -26,7 +25,7 @@ navProjects: true
 <div>
 <p class="project-kicker">Automated testing</p>
 <h2>SPS-VeriSpec Agent Workbench</h2>
-<p>Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
+<p>Uses Python, Souffl&eacute;, and pytest to turn source-code relationships into reliable automated tests.</p>
 </div>
 <a href="https://sps-demo.zhengwangyuan-patrick.com/">Check availability</a>
 </article>

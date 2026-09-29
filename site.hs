@@ -18,11 +18,7 @@ main = hakyllWith siteConfig $ do
 
     match "content/*.md" $ do
         route $ customRoute pageRoute
-        compile $ do
-            identifier <- getUnderlying
-            case takeBaseName (toFilePath identifier) of
-                "index" -> spindleCompiler
-                _ -> pageCompiler
+        compile pageCompiler
 
     create ["private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/rabbithole.html"] $ do
         route idRoute
@@ -52,14 +48,6 @@ pageCompiler :: Compiler (Item String)
 pageCompiler =
     pandocCompiler
         >>= loadAndApplyTemplate "templates/default.html" siteContext
-        >>= relativizeUrls
-
--- The home page is a horizontal roll with its own full-page shell, so it skips
--- the shared header and footer in templates/default.html entirely.
-spindleCompiler :: Compiler (Item String)
-spindleCompiler =
-    pandocCompiler
-        >>= loadAndApplyTemplate "templates/spindle.html" siteContext
         >>= relativizeUrls
 
 siteContext :: Context String
@@ -150,6 +138,9 @@ pageRoute identifier =
         "tla-finance" -> "projects/tla-finance/index.html"
         "price-manipulation" -> "projects/price-manipulation/index.html"
         "sps-verispec" -> "projects/sps-verispec/index.html"
+        "reading-group" -> "dependent-type-theory-reading-group/index.html"
+        "reading-group-schedule" -> "dependent-type-theory-reading-group/schedule/index.html"
+        "reading-group-notes" -> "dependent-type-theory-reading-group/notes/index.html"
         page -> page <> "/index.html"
 
 isSitemapPage :: Item String -> Bool

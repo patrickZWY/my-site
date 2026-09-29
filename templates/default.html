@@ -14,34 +14,49 @@
   <meta property="og:image" content="$siteUrl$/og-image.svg">
   <link rel="canonical" href="$siteUrl$$canonicalPath$">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;600&display=swap">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="$if(bodyClass)$$bodyClass$$endif$">
   <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header">
-    <div class="site-shell header-inner">
-      <a class="brand" href="/" aria-label="$siteTitle$ home">
-        <span class="brand-text">Zheng Wangyuan</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/projects/"$if(navProjects)$ aria-current="page"$endif$>Projects</a>
-        <a href="/writing/"$if(navWriting)$ aria-current="page"$endif$>Writing</a>
-        <a href="/#about">About</a>
-        <a href="/contact/"$if(navContact)$ aria-current="page"$endif$>Contact</a>
-      </nav>
-    </div>
-  </header>
+
+  <div class="site-top">
+    <header class="site-header site-shell">
+      <div class="header-inner">
+        <span class="brand">Zheng Wangyuan</span>
+        <button class="forth-toggle lbl" type="button" data-forth-toggle aria-expanded="false" aria-controls="forth">START</button>
+      </div>
+    </header>
+
+    <section class="forth" id="forth" aria-label="Forth interpreter" hidden>
+      <div class="forth-head lbl"><span>Forth</span><span id="forth-status"></span></div>
+      <div class="forth-machine">
+        <div class="forth-col">
+          <div class="forth-term" id="forth-term" aria-live="polite"></div>
+          <form class="forth-line" id="forth-form">
+            <span class="lbl" aria-hidden="true">&gt;</span>
+            <input id="forth-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Forth input">
+            <button class="lbl" type="submit">Enter &crarr;</button>
+          </form>
+          <div class="forth-dict" id="forth-dict"></div>
+        </div>
+        <div class="forth-col">
+          <span class="lbl">Data stack</span>
+          <div class="forth-stack" id="forth-stack"></div>
+          <div class="forth-out" id="forth-out"></div>
+        </div>
+      </div>
+      <div class="forth-wiring lbl" id="forth-wiring"></div>
+    </section>
+  </div>
 
   <main id="content" class="site-main site-shell">
     $body$
   </main>
 
-  <footer class="site-footer">
-    <div class="site-shell footer-inner">
-      <span>&copy; 2026 Zheng Wangyuan</span>
-      <a href="/fun/">Experiments</a>
-    </div>
-  </footer>
-  $if(poemPage)$<script src="/poem.js"></script>$endif$
+  <script src="/forth.js" defer></script>
+  $if(poemPage)$<script src="/poem.js" defer></script>$endif$
 </body>
 </html>

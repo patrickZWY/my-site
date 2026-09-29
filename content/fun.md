@@ -3,11 +3,10 @@ title: Fun
 description: Playful demos and small experiments by Zheng Wangyuan (Patrick).
 canonicalPath: /fun/
 bodyClass: fun
-navFun: true
 ---
 
 <section class="page-header" aria-labelledby="fun-title">
-<p class="eyebrow">Playful demos</p>
+<p class="eyebrow">5 &middot; Playful demos</p>
 <h1 id="fun-title">Fun</h1>
 </section>
 
@@ -16,7 +15,7 @@ navFun: true
 <div>
 <p class="project-kicker">Kinetic poetry</p>
 <h2>A Dice Throw</h2>
-<p>Mallarmé’s poem drifts upward as a continuous field of type—part reading, part moving image.</p>
+<p>Mallarm&eacute;&rsquo;s poem drifts upward as a continuous field of type, part reading, part moving image.</p>
 </div>
 <a href="/poem/">Watch the poem</a>
 </article>

@@ -3,11 +3,10 @@ title: TLA-Finance
 description: Uses TLA+ model checking to investigate and explain suspicious outputs from agentic finance systems.
 canonicalPath: /projects/tla-finance/
 bodyClass: project-detail-page
-navProjects: true
 ---
 
 <section class="page-header project-page-header" aria-labelledby="project-title">
-<p class="eyebrow">Finance verification</p>
+<p class="eyebrow">7 &middot; Finance verification</p>
 <h1 id="project-title">TLA-Finance</h1>
 <p class="project-lede">Uses TLA+ model checking to investigate and explain suspicious outputs from agentic finance systems.</p>
 <div class="project-page-actions" aria-label="Project links">

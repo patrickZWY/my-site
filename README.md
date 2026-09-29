@@ -14,12 +14,12 @@ Hakyll writes the generated site to `_site`.
 
 - `content/` contains Markdown pages.
 - `templates/` contains shared HTML templates.
-- `css/site.css` contains the visual system.
+- `css/site.css` contains the visual system: black and white only, Azeret Mono.
+- `static/forth.js` is the Forth interpreter that is the site's only navigation
+  (see `docs/design-system.md`, "Navigation: START").
 - `static/` contains files copied to the site root, including favicons, headers, and robots.txt.
-- `docs/design-system.md` records layout rules, including the reading-rail
-  pattern for long multi-topic pages.
-
-The first version is profile and projects focused, not blog first. Replace the placeholder copy in `content/*.md` as real content becomes available.
+- `docs/design-system.md` records the visual rules, the navigation contract,
+  and the reading-rail pattern for long multi-topic pages.
 
 ## Cloudflare
 

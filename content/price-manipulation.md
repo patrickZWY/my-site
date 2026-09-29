@@ -3,11 +3,10 @@ title: Checking Smart Contracts for Price Manipulation Attacks
 description: Uses TLA+ model checking and program analysis to detect price manipulation risks in smart contracts.
 canonicalPath: /projects/price-manipulation/
 bodyClass: project-detail-page
-navProjects: true
 ---
 
 <section class="page-header project-page-header" aria-labelledby="project-title">
-<p class="eyebrow">Smart contract security</p>
+<p class="eyebrow">8 &middot; Smart contract security</p>
 <h1 id="project-title">Checking Smart Contracts for Price Manipulation Attacks</h1>
 <p class="project-lede">Uses TLA+ model checking and program analysis to detect when manipulated AMM or oracle prices can push smart contracts into unsafe states.</p>
 <div class="project-page-actions" aria-label="Project links">

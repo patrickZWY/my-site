@@ -3,11 +3,10 @@ title: SPS-VeriSpec
 description: Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.
 canonicalPath: /projects/sps-verispec/
 bodyClass: project-detail-page
-navProjects: true
 ---
 
 <section class="page-header project-page-header" aria-labelledby="project-title">
-<p class="eyebrow">Automated testing</p>
+<p class="eyebrow">9 &middot; Automated testing</p>
 <h1 id="project-title">SPS-VeriSpec</h1>
 <p class="project-lede">Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
 <div class="project-page-actions" aria-label="Project links">

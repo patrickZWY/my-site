@@ -1,144 +1,79 @@
 # Site Design System
 
 This document records design rules for the personal site. Treat these rules as
-the default direction for new pages unless a page has a clearly different
-interaction model.
+the default direction for new pages.
 
 ## Core Direction
 
-The site should feel calm, literate, readable, and deliberate. Its cinematic
-influence comes from pacing, attention, and tonal contrast rather than themed
-decoration. It is not a marketing landing page. Favor clear hierarchy, strong
-reading rhythm, and interfaces that help visitors move through dense material
-without losing context.
+Two inks, one face, one-pixel rules. Everything on the site is `#000` or
+`#fff`. Tone is carried by weight, size, letter-spacing, and rules, never by a
+third colour, a gradient, a shadow, an image, or opacity on text. The face is
+Azeret Mono at 300 for text, 400 for ledes, and 600 for headings and emphasis.
+Small labels are 11px uppercase with 0.12em tracking.
 
-The public site uses a quiet graphite palette, warm off-white text, restrained
-rules, and generous negative space. Avoid cards, rounded SaaS components,
-technical schematics, heavy grain, and oversized display typography. On project
-lists, hover and keyboard focus may bring one item forward while the remaining
-items recede slightly; all content must remain readable.
+The site should feel like a machine that happens to hold a person's notes:
+calm, literate, and deliberate. It is not a marketing page. Favour clear
+hierarchy and generous negative space. Avoid cards with radius or shadow,
+decorative schematics, oversized display type, and any colour.
 
-Use generous spacing by default:
+Tokens live at the top of `css/site.css`: `--ink`, `--ground`, `--mono`,
+`--header-h`, `--gutter`. Style through them.
 
-- Wider page gutters than the minimum needed to fit text.
-- Clear vertical separation between major sections.
-- Cards and rows with enough padding for scanning.
-- Long-form text with readable line height and visible breaks between topics.
+## Navigation: START
+
+The site has no menu. The only way between sections is the Forth interpreter
+folded under the header on every page. The header button labelled START
+unfolds it; clicking it again or pressing Escape folds it.
+
+- `templates/default.html` holds the panel's markup, so it is present on every
+  page that uses the shared template.
+- `static/forth.js` is the machine: an integer data stack, colon definitions,
+  `( comments )`, and `GO`, which pops the top of the stack and loads the page
+  at that address. The session (stack, user words, transcript) persists in
+  `sessionStorage` across pages.
+- Addresses: 1 About, 2 Projects, 3 Writing, 4 Reading group, 5 Fun,
+  6 Contact, 7 TLA-Finance, 8 Price manipulation, 9 SPS-VeriSpec. Address 0 is
+  the Rabbit Hole gate and is not listed in the panel. The table at the bottom
+  of the panel shows the listed addresses; the visitor still has to make the
+  machine produce one.
+- Rules for copy: the site never tells the reader what to do. The transcript
+  opens with a worked example (`2 3 +`, `1 - .S`) instead of an explanation.
+  Dictionary words are buttons that insert themselves into the input line.
+- The header name is plain text, not a link, and the 404 page has no way home.
+  Content pages do not link to other sections. Links inside content are
+  allowed only when they leave the section system: external sites, mailto,
+  the demo page, the poem, and the reading group's own subpages. The projects
+  list shows each project's address instead of a link.
+- Every section page carries its address in its eyebrow (for example
+  `7 · Finance verification`).
 
 ## Multi-Topic Reading Pattern
 
-For any page with multiple topics, nested layers, long study material, or a
-passage where readers may need to move back and forth, use the Rabbit Hole
-reading-rail pattern.
-
-This pattern is now the default for:
-
-- Long notes or essays with several major sections.
-- Study pages that combine an overview with multiple source studies.
-- Project pages that contain layered methodology, implementation notes, and
-  supporting material.
-- Any page where scrolling alone makes it hard to know where the reader is.
+For any page with multiple topics, nested layers, or long study material, use
+the Rabbit Hole reading-rail pattern.
 
 The pattern must include:
 
-- A persistent right-side rail on desktop.
+- A persistent right-side rail on desktop, sticky below the header.
 - A progress line showing where the reader is in the full page.
 - Section links that jump directly to major sections.
-- Active-section highlighting while the reader scrolls.
+- Active-section highlighting while the reader scrolls (inverted ink).
 - Stable anchor IDs for each major section and subtopic.
 - A compact horizontal section navigator on smaller screens.
-- Smooth anchor navigation with enough scroll padding that headings are not
-  hidden under sticky UI.
+- Enough scroll padding that headings are not hidden under the sticky header.
 
-The rail should be useful, not decorative. If a page has too little structure
-to need navigation, do not add the rail.
-
-## Rabbit Hole Reference
-
-The current reference implementation is the private Rabbit Hole page:
+The reference implementation is the private Rabbit Hole page:
 
 - `templates/private-study.html` defines the two-column reading layout and rail.
 - `css/site.css` defines `.private-study-layout`, `.private-reading-rail`,
   `.private-rail-progress`, and `.private-section-nav`.
 - `static/study-nav.js` updates scroll progress and active section state.
-- `site.hs` provides stable IDs and human-readable navigation titles for each
-  source study.
-
-Future multi-topic pages should either reuse this structure directly or extract
-it into a shared template if another page needs the same behavior.
-
-## Interaction Rules
-
-Reading navigation should support both scanning and deep reading:
-
-- Keep the main text column stable and uncluttered.
-- Keep navigation close enough to be useful, but visually quieter than content.
-- Highlight the current section clearly without creating a loud sidebar.
-- Make jump links work without JavaScript; JavaScript should only enhance active
-  state and progress.
-- On mobile and narrow screens, prefer a sticky horizontal section navigator
-  over a squeezed sidebar.
 
 ## Security Note For Private Pages
 
 Private content must not be generated at a public route and hidden only by UI.
 The Rabbit Hole page is generated by Hakyll, converted into a Worker-only
 module before deployment, and removed from the uploaded static assets. Public
-requests to old internal private asset paths must return `404`.
-
-## The Home Page Roll
-
-The home page is the one place that departs from the reading-first direction
-above, on the grounds the Core Direction allows: it has a clearly different
-interaction model. It is a horizontal roll of sections rather than a document —
-about, three projects, writing, service and community, contact — laid out left to right and dragged
-past a fixed reading position. Everything else on the site stays a normal page,
-and the roll links out to those pages rather than reproducing them.
-
-Its parts:
-
-- `templates/spindle.html` is a complete page shell. It deliberately does not
-  use `templates/default.html`, because the roll fills the viewport and has no
-  room for the shared header and footer.
-- `css/spindle.css` is self-contained and loaded only by that page. It does not
-  extend `css/site.css`; the two never appear together.
-- `static/spindle.js` drives dragging, settling, the lighting, and the ring.
-- `content/index.md` carries metadata only. `site.hs` routes it through
-  `spindleCompiler` while every other page still goes through `pageCompiler`.
-
-### Decisions That Look Like Bugs
-
-Three choices here are counterintuitive and were each arrived at by fixing the
-obvious version first. Do not revert them without reading this.
-
-**No CSS scroll-snap.** Dragging requires `scroll-snap-type` to be off, and
-settling requires it on. Toggling it back on makes the browser re-snap
-instantly and without animation, so every gesture ended in a visible jump.
-Settling is animated in script instead, on one easing curve shared by drag
-release, flick momentum, wheel, trackpad, the gauge buttons, and the arrow
-keys. `scroll-padding-left` is kept purely as the single source of the reading
-offset.
-
-**Sections dim by colour, not by opacity or filter.** Both `opacity` below 1
-and any `filter` promote an element to its own compositor layer, which drops
-subpixel antialiasing and makes text look soft. Every colour in a section is
-mixed toward the page ground by its `--lit` value instead, so type stays sharp
-at every stage of the roll. Surfaces that carry no text — the lift behind a
-section, its leading edge — do use opacity, where the tradeoff does not apply.
-
-**The settle commit point is asymmetric.** Landing on whichever section is
-nearest makes reversing out of a half-turned section cost a 50% swing, while
-the momentum that carried you in cost far less, so a section you had entered
-but not settled would hold on to you. Whichever direction you are already
-travelling is the cheap one, 22% either way.
-
-### Performance Notes
-
-The roll writes styles every frame, so the hot path is deliberately narrow.
-Section geometry is measured once and cached rather than read during a scroll
-frame. `--lit` is quantised before being written, because each write
-recalculates a section and everything inside it. The decorative registers take
-direct `transform` writes rather than a custom property on a shared ancestor,
-which would invalidate every section on every frame. The trailing spacer is
-sized in script to exactly the room the last section needs, so the roll ends at
-the last section rather than at empty ground.
+requests to old internal private asset paths must return `404`. The gate page
+rendered by `cloudflare/site-worker.js` uses the `.private-gate*` classes from
+`css/site.css`, so keep those when restyling.
