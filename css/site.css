@@ -183,9 +183,8 @@ p {
   padding: 4px 12px;
 }
 
-/* The home page has no header. The name appears once, and the interpreter
-   lives in a box in the middle of the page. */
-body.home .site-header {
+/* The home page shows the name once, in the middle, so the header does not repeat it. */
+body.home .brand {
   display: none;
 }
 
