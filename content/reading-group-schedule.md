@@ -14,6 +14,7 @@ bodyClass: reading-group
 <section aria-labelledby="week-1">
 <h2 id="week-1">Week 1 &mdash; Saturday, September 26 &mdash; Completed</h2>
 <p>Read PDTT Chapter 1: Introduction.</p>
+<p>Covered a brief introduction to lambda calculus (α, β, and η rules), variable capture, the Y combinator and defining recursive functions with it, motivation for dependent type theory (types indexed by terms), the vector example, and <code>refl</code>.</p>
 </section>
 <section aria-labelledby="week-2">
 <h2 id="week-2">Week 2 &mdash; Saturday, October 3</h2>
