@@ -12,7 +12,7 @@ bodyClass: reading-group
 
 <div class="group-sections">
 <section aria-labelledby="week-1">
-<h2 id="week-1">Week 1 &mdash; Completed</h2>
+<h2 id="week-1">Week 1 &mdash; Saturday, September 26 &mdash; Completed</h2>
 <p>Chapter 1 of <cite>Principles of Dependent Type Theory</cite>.</p>
 </section>
 <section aria-labelledby="week-2">
