@@ -99,4 +99,28 @@ bodyClass: reading-group
 <h2 id="week-22">Week 22 &mdash; Saturday, February 20</h2>
 <p>Read PDTT Section 5.4.</p>
 </section>
+<section aria-labelledby="week-23">
+<h2 id="week-23">Week 23 &mdash; Saturday, February 27</h2>
+<p>Read PDTT Section 6.1.</p>
+</section>
+<section aria-labelledby="week-24">
+<h2 id="week-24">Week 24 &mdash; Saturday, March 6</h2>
+<p>Read PDTT Sections 6.2&ndash;6.3.4.</p>
+</section>
+<section aria-labelledby="week-25">
+<h2 id="week-25">Week 25 &mdash; Saturday, March 13</h2>
+<p>Read PDTT Sections 6.3.5&ndash;6.4.</p>
+</section>
+<section aria-labelledby="week-26">
+<h2 id="week-26">Week 26 &mdash; Saturday, March 20</h2>
+<p>Read PDTT Section 6.5.</p>
+</section>
+<section aria-labelledby="week-27">
+<h2 id="week-27">Week 27 &mdash; Saturday, March 27</h2>
+<p>Read PDTT Section 6.6.</p>
+</section>
+<section aria-labelledby="week-28">
+<h2 id="week-28">Week 28 &mdash; Saturday, April 3</h2>
+<p>Read PDTT Section 6.7.</p>
+</section>
 </div>
