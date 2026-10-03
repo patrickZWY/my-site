@@ -51,4 +51,16 @@ bodyClass: reading-group
 <h2 id="week-10">Week 10 &mdash; Saturday, November 28</h2>
 <p>Read PDTT Section 3.6 (a short reading) and review.</p>
 </section>
+<section aria-labelledby="week-11">
+<h2 id="week-11">Week 11 &mdash; Saturday, December 5</h2>
+<p>Read PDTT Sections 4.1&ndash;4.2.</p>
+</section>
+<section aria-labelledby="week-12">
+<h2 id="week-12">Week 12 &mdash; Saturday, December 12</h2>
+<p>Read PDTT Section 4.3.</p>
+</section>
+<section aria-labelledby="week-13">
+<h2 id="week-13">Week 13 &mdash; Saturday, December 19</h2>
+<p>Read PDTT Section 4.4.</p>
+</section>
 </div>
