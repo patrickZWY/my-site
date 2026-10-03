@@ -63,4 +63,16 @@ bodyClass: reading-group
 <h2 id="week-13">Week 13 &mdash; Saturday, December 19</h2>
 <p>Read PDTT Section 4.4.</p>
 </section>
+<section aria-labelledby="week-14">
+<h2 id="week-14">Week 14 &mdash; Saturday, December 26</h2>
+<p>Optional paper reading session (winter break).</p>
+</section>
+<section aria-labelledby="week-15">
+<h2 id="week-15">Week 15 &mdash; Saturday, January 2</h2>
+<p>Optional paper reading session (winter break).</p>
+</section>
+<section aria-labelledby="week-16">
+<h2 id="week-16">Week 16 &mdash; Saturday, January 9</h2>
+<p>Optional paper reading session (winter break).</p>
+</section>
 </div>
