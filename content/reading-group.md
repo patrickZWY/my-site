@@ -27,10 +27,6 @@ bodyClass: reading-group
 <h2 id="schedule">Schedule</h2>
 <p><a href="/dependent-type-theory-reading-group/schedule/">Reading schedule</a></p>
 </section>
-<section aria-labelledby="notes">
-<h2 id="notes">Notes</h2>
-<p><a href="/dependent-type-theory-reading-group/notes/">Session notes</a></p>
-</section>
 <section aria-labelledby="interest">
 <h2 id="interest">Interested?</h2>
 <p><a href="mailto:hello@zhengwangyuan-patrick.com?subject=Dependent%20Type%20Theory%20Reading%20Group">Send me an email</a>.</p>
