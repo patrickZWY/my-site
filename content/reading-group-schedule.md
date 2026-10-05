@@ -17,8 +17,9 @@ bodyClass: reading-group
 <p>Covered a brief introduction to lambda calculus (α, β, and η rules), variable capture, the Y combinator and defining recursive functions with it, motivation for dependent type theory (types indexed by terms), the vector example, <code>refl</code>, and the difference between definitional and propositional equality.</p>
 </section>
 <section aria-labelledby="week-2">
-<h2 id="week-2">Week 2 &mdash; Saturday, October 3</h2>
+<h2 id="week-2">Week 2 &mdash; Saturday, October 3 &mdash; Completed</h2>
 <p>Read PDTT Section 2.1, “The simply-typed lambda calculus”; Section 2.2, “Towards the syntax of dependent type theory,” is optional.</p>
+<p>Discussed sorts vs. types, a pedagogical introduction to contexts that makes them progressively more explicit, and how product types can be expressed using function types.</p>
 </section>
 <section aria-labelledby="week-3">
 <h2 id="week-3">Week 3 &mdash; Saturday, October 10</h2>
