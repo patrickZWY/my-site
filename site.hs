@@ -16,6 +16,12 @@ main = hakyllWith siteConfig $ do
     match "study-materials/*.md" $
         compile pandocCompiler
 
+    match "skills/*/SKILL.md" $ do
+        compile pandocCompiler
+        version "download" $ do
+            route idRoute
+            compile copyFileCompiler
+
     match "content/*.md" $ do
         route $ customRoute pageRoute
         compile pageCompiler
@@ -47,8 +53,17 @@ siteConfig = defaultConfiguration
 pageCompiler :: Compiler (Item String)
 pageCompiler =
     pandocCompiler
+        >>= applyWritingTemplate
         >>= loadAndApplyTemplate "templates/default.html" siteContext
         >>= relativizeUrls
+
+applyWritingTemplate :: Item String -> Compiler (Item String)
+applyWritingTemplate item
+    | takeBaseName (toFilePath (itemIdentifier item)) == "acl2-proof-with-ai" =
+        loadAndApplyTemplate "templates/writing-skill.html"
+            (field "skillBody" (\_ -> loadBody "skills/acl2-proof-with-ai/SKILL.md") <> siteContext)
+            item
+    | otherwise = return item
 
 siteContext :: Context String
 siteContext =
@@ -141,6 +156,7 @@ pageRoute identifier =
         "reading-group" -> "dependent-type-theory-reading-group/index.html"
         "reading-group-schedule" -> "dependent-type-theory-reading-group/schedule/index.html"
         "reading-group-notes" -> "dependent-type-theory-reading-group/notes/index.html"
+        "acl2-proof-with-ai" -> "writing/acl2-proof-with-ai/index.html"
         page -> page <> "/index.html"
 
 isSitemapPage :: Item String -> Bool

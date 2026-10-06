@@ -564,6 +564,36 @@ body.home .site-main {
   margin-bottom: 24px;
 }
 
+/* ---------- Writing skills ---------- */
+
+.skill-article h2 {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ink);
+}
+
+.skill-article h3 {
+  margin-top: 24px;
+}
+
+.skill-article pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  white-space: pre;
+}
+
+.skill-article code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.skill-article pre code {
+  overflow-wrap: normal;
+}
+
 /* ---------- Rabbit Hole (private study) ---------- */
 
 .private-study-layout {
