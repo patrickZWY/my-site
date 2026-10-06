@@ -17,10 +17,8 @@ main = hakyllWith siteConfig $ do
         compile pandocCompiler
 
     match "skills/*/SKILL.md" $ do
-        compile pandocCompiler
-        version "download" $ do
-            route idRoute
-            compile copyFileCompiler
+        route idRoute
+        compile copyFileCompiler
 
     match "content/*.md" $ do
         route $ customRoute pageRoute
@@ -61,7 +59,7 @@ applyWritingTemplate :: Item String -> Compiler (Item String)
 applyWritingTemplate item
     | takeBaseName (toFilePath (itemIdentifier item)) == "acl2-proof-with-ai" =
         loadAndApplyTemplate "templates/writing-skill.html"
-            (field "skillBody" (\_ -> loadBody "skills/acl2-proof-with-ai/SKILL.md") <> siteContext)
+            siteContext
             item
     | otherwise = return item
 

@@ -13,7 +13,7 @@ bodyClass: writing
 <section class="section-block" aria-labelledby="published-title">
 <h2 id="published-title">Notes and skills</h2>
 <ul class="plain-list">
-<li><a href="/writing/acl2-proof-with-ai/">ACL2 proofs with AI</a> &mdash; a reusable skill from practical proof debugging: checkpoint-shaped lemmas, focused rewriting, constructive witnesses, and induction control.</li>
+<li><a href="/writing/acl2-proof-with-ai/">ACL2s proofs with AI</a> &mdash; practical proof-debugging experience, with a downloadable agent skill.</li>
 </ul>
 </section>
 
