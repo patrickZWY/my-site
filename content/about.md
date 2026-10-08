@@ -15,4 +15,5 @@ bodyClass: about
 <dt>Demos</dt><dd>Available by request</dd>
 <dt>Organizer</dt><dd>Bay Area Dependent Type Theory Reading Group</dd>
 <dt>Volunteer</dt><dd>ICFP 2026 &middot; Indianapolis</dd>
+<dt>Attendee</dt><dd>OPLSS &middot; Boston</dd>
 </dl>
