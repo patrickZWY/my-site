@@ -16,6 +16,6 @@ bodyClass: about
 <dl class="kv">
 <dt>Organizer</dt><dd>Bay Area Dependent Type Theory Reading Group</dd>
 <dt>Volunteer</dt><dd>ICFP 2026 &middot; Indianapolis</dd>
-<dt>Attendee</dt><dd>OPLSS &middot; Boston</dd>
+<dt>Attendee</dt><dd>OPLSS 2024 &middot; Boston</dd>
 </dl>
 </section>
