@@ -6,7 +6,7 @@ bodyClass: reading-group
 ---
 
 <section class="page-header" aria-labelledby="group-title">
-<p class="eyebrow">4 &middot; Reading group</p>
+<p class="eyebrow">Reading group</p>
 <h1 id="group-title">Bay Area Dependent Type Theory Reading Group</h1>
 </section>
 
@@ -32,3 +32,5 @@ bodyClass: reading-group
 <p><a href="mailto:hello@zhengwangyuan-patrick.com?subject=Dependent%20Type%20Theory%20Reading%20Group">Send me an email</a>.</p>
 </section>
 </div>
+
+<p>There are also a few <a href="/fun/">things I do for fun</a>.</p>

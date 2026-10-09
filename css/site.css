@@ -6,24 +6,19 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
+}
+
+.photographs {
+  max-width: 1000px;
+}
+
+.photographs figure {
+  margin: 0 0 2em;
 }
 
 pre {
   overflow-x: auto;
-}
-
-.forth-term,
-.forth-out {
-  white-space: pre-wrap;
-}
-
-.forth-stack .cell span + span,
-.forth-wiring span {
-  margin-left: 1em;
-}
-
-body.home .brand {
-  display: none;
 }
 
 /* Keep the poem's playback, using the browser's default type and controls. */

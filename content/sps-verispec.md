@@ -1,47 +1,10 @@
 ---
 title: SPS-VeriSpec
-description: Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.
+description: SPS-VeriSpec repository.
 canonicalPath: /projects/sps-verispec/
 bodyClass: project-detail-page
 ---
 
-<section class="page-header project-page-header" aria-labelledby="project-title">
-<p class="eyebrow">9 &middot; Automated testing</p>
-<h1 id="project-title">SPS-VeriSpec</h1>
-<p class="project-lede">Uses Python, Soufflé, and pytest to turn source-code relationships into reliable automated tests.</p>
-<div class="project-page-actions" aria-label="Project links">
-<a class="button" href="https://github.com/patrickZWY/SPS-VeriSpec">View repository</a>
-<a href="/demo/#sps-verispec">Request a demo</a>
-</div>
-</section>
+<h1><a href="https://github.com/patrickZWY/SPS-VeriSpec">SPS-VeriSpec</a></h1>
 
-<section class="project-detail" aria-label="SPS-VeriSpec details">
-<section class="project-detail-section">
-<h2>Problem</h2>
-<div>
-<p>Finding a pattern in source code does not automatically mean it makes a good test. The hard part is deciding which findings are reliable enough to run as pytest checks.</p>
-</div>
-</section>
-
-<section class="project-detail-section">
-<h2>What I built</h2>
-<div>
-<ul class="project-detail-list">
-<li>A Python code reader that records classes, functions, calls, field access, exceptions, boundaries, and common dataclass patterns.</li>
-<li>Soufflé rules that connect those facts and find useful relationships across the program.</li>
-<li>A pytest generator that only promotes well-supported checks; uncertain or LLM-suggested results stay separate for human review.</li>
-</ul>
-</div>
-</section>
-
-<section class="project-detail-section">
-<h2>What works today</h2>
-<div>
-<ul class="project-detail-list">
-<li>Generated test suites and reports for CutePetsBoston, dacite, bounded Transformers, and a type-checker case study.</li>
-<li>Reusable checks for dataclass fields, constructors, default values, and conversions.</li>
-<li>A browser view that shows the path from source facts to Soufflé results, generated tests, validation, and items that still need review.</li>
-</ul>
-</div>
-</section>
-</section>
+<p>You can find my <a href="/projects/">other projects</a> here.</p>

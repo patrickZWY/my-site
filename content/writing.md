@@ -6,14 +6,14 @@ bodyClass: writing
 ---
 
 <section class="page-header" aria-labelledby="writing-title">
-<p class="eyebrow">3 &middot; Notes</p>
+<p class="eyebrow">Notes</p>
 <h1 id="writing-title">Writing</h1>
 </section>
 
 <section class="section-block" aria-labelledby="published-title">
 <h2 id="published-title">Notes and skills</h2>
 <ul class="plain-list">
-<li><a href="/writing/acl2-proof-with-ai/">ACL2s proofs with AI</a> &mdash; practical proof-debugging experience, with a downloadable agent skill.</li>
+<li><a href="/skills/acl2-proof-with-ai/SKILL.md" download="SKILL.md">Download ACL2s proofs with AI (SKILL.md)</a></li>
 </ul>
 </section>
 
@@ -25,3 +25,5 @@ bodyClass: writing
 <li>Deploying small technical demos without overbuilding.</li>
 </ul>
 </section>
+
+<p>Some of that learning happens with the <a href="/dependent-type-theory-reading-group/">reading group I organize</a>.</p>

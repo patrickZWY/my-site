@@ -1,30 +1,15 @@
 ---
 title: Fun
-description: Playful demos and small experiments by Zheng Wangyuan (Patrick).
+description: Poetry and project links.
 canonicalPath: /fun/
 bodyClass: fun
 ---
 
-<section class="page-header" aria-labelledby="fun-title">
-<p class="eyebrow">5 &middot; Playful demos</p>
-<h1 id="fun-title">Fun</h1>
-</section>
+<h1>Fun</h1>
 
-<section class="project-list" aria-label="Fun project list">
-<article class="project-row" id="dice-throw">
-<div>
-<p class="project-kicker">Kinetic poetry</p>
-<h2>A Dice Throw</h2>
-<p>Mallarm&eacute;&rsquo;s poem drifts upward as a continuous field of type, part reading, part moving image.</p>
-</div>
-<a href="/poem/">Watch the poem</a>
-</article>
-<article class="project-row" id="archipelago">
-<div>
-<p class="project-kicker">Movie graph and social discovery</p>
-<h2>Archipelago</h2>
-<p>A playful movie-graph app for mapping how films connect, opening a seeded demo network, browsing friends' graph islands, and sharing read-only graph links.</p>
-</div>
-<a href="https://archipelago-demo.zhengwangyuan-patrick.com/">Open demo</a>
-</article>
-</section>
+<ul>
+<li><a href="/poem/">A Dice Throw</a></li>
+<li><a href="https://github.com/patrickZWY/archipelago">Archipelago</a></li>
+</ul>
+
+<p>If you would like to talk, you can <a href="/contact/">get in touch</a>.</p>

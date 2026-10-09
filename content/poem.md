@@ -664,3 +664,5 @@ EXCEPT
                                     EVERY Thought emits a Dice Throw</pre>
 </div>
 </section>
+
+<p>There are more <a href="/fun/">things I do for fun</a>.</p>

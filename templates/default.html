@@ -17,42 +17,10 @@
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="$if(bodyClass)$$bodyClass$$endif$">
-  <a class="skip-link" href="#content">Skip to content</a>
-
-  <div class="site-top">
-    <header class="site-header site-shell">
-      <div class="header-inner">
-        <span class="brand">Zheng Wangyuan</span>
-        <button class="forth-toggle lbl" type="button" data-forth-toggle aria-expanded="false" aria-controls="forth">START</button>
-      </div>
-    </header>
-
-    <section class="forth" id="forth" aria-label="Forth interpreter" hidden>
-      <div class="forth-head lbl"><span id="forth-status"></span></div>
-      <div class="forth-machine">
-        <div class="forth-col">
-          <div class="forth-term" id="forth-term" aria-live="polite"></div>
-          <form class="forth-line" id="forth-form">
-            <span class="lbl" aria-hidden="true">&gt;</span>
-            <input id="forth-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Forth input">
-            <button class="lbl" type="submit">Enter &crarr;</button>
-          </form>
-        </div>
-        <div class="forth-col">
-          <span class="lbl">Data stack</span>
-          <div class="forth-stack" id="forth-stack"></div>
-          <div class="forth-out" id="forth-out"></div>
-        </div>
-      </div>
-      <div class="forth-wiring lbl" id="forth-wiring"></div>
-    </section>
-  </div>
-
   <main id="content" class="site-main site-shell">
     $body$
   </main>
 
-  <script src="/forth.js" defer></script>
   $if(poemPage)$<script src="/poem.js" defer></script>$endif$
 </body>
 </html>

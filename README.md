@@ -15,8 +15,8 @@ Hakyll writes the generated site to `_site`.
 - `content/` contains Markdown pages.
 - `templates/` contains shared HTML templates.
 - `css/site.css` keeps browser defaults, with only functional layout and overflow rules.
-- `static/forth.js` is the Forth interpreter that is the site's only navigation
-  (see `docs/design-system.md`, "Navigation: START").
+- Navigation lives in ordinary links within page text, beginning with the
+  homepage introduction (see `docs/design-system.md`, "Navigation").
 - `static/` contains files copied to the site root, including favicons, headers, and robots.txt.
 - `docs/design-system.md` records the visual rules, the navigation contract,
   and the reading-rail pattern for long multi-topic pages.
@@ -70,7 +70,7 @@ does not match `demo.zhengwangyuan-patrick.com`,
 `sps-demo.zhengwangyuan-patrick.com`,
 `archipelago-demo.zhengwangyuan-patrick.com`, or any `live-*` tunnel hostname.
 
-For a durable demo reminder, put a Cloudflare Worker in front of
+For a clear offline response, put a Cloudflare Worker in front of
 the live-demo frontdoor hostnames:
 
 - `demo.zhengwangyuan-patrick.com` routes to the Worker.

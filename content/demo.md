@@ -1,41 +1,16 @@
 ---
-title: Demo
-description: Live demo availability and request link for Zheng Wangyuan (Patrick).
+title: Repositories
+description: Project repository links.
 canonicalPath: /demo/
 bodyClass: demo
 ---
 
-<section class="page-header" aria-labelledby="demo-title">
-<p class="eyebrow">Guided walkthroughs</p>
-<h1 id="demo-title">Demos available by request</h1>
-<p>Choose a project below, then email me to schedule a guided walkthrough.</p>
-<p><a class="button" href="mailto:hello@zhengwangyuan-patrick.com?subject=Demo%20request">Request a demo</a></p>
-</section>
+<h1>Repositories</h1>
 
-<section class="project-list" aria-label="Available demos">
-<article class="project-row" id="tla-finance">
-<div>
-<p class="project-kicker">Finance verification</p>
-<h2>TLA-Finance</h2>
-<p>Uses TLA+ model checking to investigate and explain suspicious outputs from agentic finance systems.</p>
-</div>
-<a href="https://demo.zhengwangyuan-patrick.com/">Check availability</a>
-</article>
-<article class="project-row" id="sps-verispec">
-<div>
-<p class="project-kicker">Automated testing</p>
-<h2>SPS-VeriSpec Agent Workbench</h2>
-<p>Uses Python, Souffl&eacute;, and pytest to turn source-code relationships into reliable automated tests.</p>
-</div>
-<a href="https://sps-demo.zhengwangyuan-patrick.com/">Check availability</a>
-</article>
-</section>
-
-<section class="empty-state" aria-labelledby="demo-details-title">
-<h2 id="demo-details-title">What to Include</h2>
-<ul class="plain-list">
-<li>Your name and organization, if relevant.</li>
-<li>The project you want to see: TLA-Finance or SPS-VeriSpec.</li>
-<li>A few time windows when you are available.</li>
+<ul>
+<li><a href="https://github.com/patrickZWY/TLA-Finance">TLA-Finance</a></li>
+<li><a href="https://github.com/patrickZWY/Platypus-Model">Platypus-Model</a></li>
+<li><a href="https://github.com/patrickZWY/SPS-VeriSpec">SPS-VeriSpec</a></li>
 </ul>
-</section>
+
+<p>You can find my <a href="/projects/">projects</a> here.</p>

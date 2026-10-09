@@ -11,38 +11,25 @@ Do not add web fonts, decorative backgrounds, cards, custom typography, or a
 centred application shell. The poem retains its playback with plain browser
 type and controls, without a photograph or gradient.
 
-`css/site.css` contains only the few rules needed for overflow, transcript
-whitespace, stack/address spacing, and poem playback. The header and Forth
-panel stay in the document flow rather than floating over the page.
+`css/site.css` contains only the few rules needed for photograph sizing,
+overflow, and poem playback. The homepage introduces the author through
+personal photographs and a short line in their own words.
 
-## Navigation: START
+## Navigation
 
-The site has no menu. The only way between sections is the Forth interpreter
-folded under the header on every page. The header button labelled START
-unfolds it; clicking it again or pressing Escape folds it.
+There is no header menu or interpreter. Navigation uses ordinary hyperlinks
+inside the page text, after the reader has reached the relevant introduction.
 
-- `templates/default.html` holds the panel's markup, so it is present on every
-  page that uses the shared template.
-- `static/forth.js` is the machine: an integer data stack, colon definitions,
-  `( comments )`, and `GO`, which pops the top of the stack and loads the page
-  at that address. The session (stack, user words, transcript) persists in
-  `sessionStorage` across pages.
-- Addresses: 1 About, 2 Projects, 3 Writing, 4 Reading group, 5 Fun,
-  6 Contact, 7 TLA-Finance, 8 Price manipulation, 9 SPS-VeriSpec. Address 0 is
-  the Rabbit Hole gate and is not listed in the panel. The table at the bottom
-  of the panel shows the listed addresses; the visitor still has to make the
-  machine produce one.
-- Rules for copy: the site never tells the reader what to do. The transcript
-  opens with a worked example (`2 3 +`, `1 - .S`) instead of an explanation.
-  There is no dictionary reference or command palette; visitors type Forth
-  words directly, including any words they define themselves.
-- The header name is plain text, not a link, and the 404 page has no way home.
-  Content pages do not link to other sections. Links inside content are
-  allowed only when they leave the section system: external sites, mailto,
-  the demo page, the poem, and the reading group's own subpages. The projects
-  list shows each project's address instead of a link.
-- Section addresses can appear in their introductory text (for example
-  `7 · Finance verification`). The About page starts directly with its heading.
+The main reading sequence is Home → Hometown → More places → About → Projects
+→ Writing → Reading group → Fun → Contact. Each page ends with a sentence linking to the next
+section. Contact links back to the introduction. Do not add a section menu,
+next/previous toolbar, or navigation links above the introduction.
+
+Projects and Archipelago are ordinary links to their GitHub repositories,
+without descriptions or demo-request prompts. Existing project detail routes
+contain only a repository link and a sentence returning to Projects. The poem
+links back to Fun. Section labels have no numeric addresses. Reading-group
+subpage, external, and email links remain ordinary links in the content.
 
 ## Multi-Topic Reading Pattern
 
