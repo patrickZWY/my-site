@@ -22,15 +22,23 @@ pre {
 }
 
 /* Keep the poem's playback, using the browser's default type and controls. */
+.poem-screening-header {
+  text-align: center;
+}
+
 .poem-frame {
+  display: flex;
   position: relative;
   height: 70vh;
   overflow: auto;
 }
 
 .rolling-poem {
-  position: absolute;
+  position: relative;
+  flex: none;
+  align-self: flex-start;
   width: max-content;
+  margin-inline: auto;
   animation: poem-roll 400s linear infinite;
 }
 

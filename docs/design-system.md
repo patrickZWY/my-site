@@ -22,13 +22,16 @@ inside the page text, after the reader has reached the relevant introduction.
 
 The main reading sequence is Home → Hometown → More places → About → Projects
 → Writing → Reading group → Fun → Contact. Each page ends with a sentence linking to the next
-section. Contact links back to the introduction. Do not add a section menu,
+section, except Fun, which ends with its poem and project links. Contact links
+back to the introduction. Do not add a section menu,
 next/previous toolbar, or navigation links above the introduction.
 
 Projects and Archipelago are ordinary links to their GitHub repositories,
 without descriptions or demo-request prompts. Existing project detail routes
 contain only a repository link and a sentence returning to Projects. The poem
-links back to Fun. Section labels have no numeric addresses. Reading-group
+links back to Fun, and its heading, controls, and poem are horizontally centred.
+Preserve the poem's whitespace; let it scroll horizontally on narrow screens.
+Section labels have no numeric addresses. Reading-group
 subpage, external, and email links remain ordinary links in the content.
 
 ## Multi-Topic Reading Pattern
