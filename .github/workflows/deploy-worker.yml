@@ -24,9 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Check Worker syntax
-        run: node --check cloudflare/demo-router-worker.js
-
       - name: Deploy demo Worker to Cloudflare
         if: env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
         uses: cloudflare/wrangler-action@v3

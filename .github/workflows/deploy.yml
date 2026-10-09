@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Check and deploy
 
 on:
   push:
@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build Hakyll site
+    name: Check static site
     runs-on: ubuntu-latest
     env:
       HAS_CLOUDFLARE_WORKERS_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN != '' }}
@@ -28,54 +28,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up Haskell
-        uses: haskell-actions/setup@v2
-        with:
-          ghc-version: "9.6.7"
-          enable-stack: true
-          stack-version: "3.7.1"
-
-      - name: Cache Stack
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.stack
-            .stack-work
-          key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml', 'personal-site.cabal') }}
-          restore-keys: |
-            ${{ runner.os }}-stack-
-
-      - name: Build site executable
-        run: stack build
-
-      - name: Generate static site
-        run: stack exec site rebuild
-
-      - name: Prepare private Rabbit Hole Worker page
-        run: node scripts/prepare-private-study-worker.js
-
-      - name: Check generated pages
-        run: |
-          test -f _site/index.html
-          test -f _site/projects/index.html
-          test -f _site/projects/tla-finance/index.html
-          test -f _site/projects/price-manipulation/index.html
-          test -f _site/projects/sps-verispec/index.html
-          test -f _site/demo/index.html
-          test -f _site/writing/index.html
-          test -f _site/contact/index.html
-          test -f _site/404.html
-          test -f _site/study-nav.js
-          test -f _site/about/index.html
-          test -f _site/dependent-type-theory-reading-group/index.html
-          test -f _site/dependent-type-theory-reading-group/schedule/index.html
-          test ! -e _site/rabbithole/index.html
-          test ! -e _site/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71
-          test -f cloudflare/private-study-page.generated.js
-          node --check static/study-nav.js
-          node --input-type=module --check < cloudflare/private-study-page.generated.js
-          node --input-type=module --check < cloudflare/site-worker.js
-          node --input-type=module --check < cloudflare/demo-router-worker.js
+      - name: Check static site
+        run: sh scripts/check-site.sh
 
       - name: Deploy personal site Worker to Cloudflare
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'

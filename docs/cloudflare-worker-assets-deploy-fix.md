@@ -2,6 +2,8 @@
 
 Date: 2026-07-02
 
+Updated 2026-10-09: the site now deploys directly from `public/`, with no generator.
+
 ## Summary
 
 The personal site deployment was failing because the GitHub Actions workflow was
@@ -45,7 +47,7 @@ reported that no Pages project with that name existed.
 Deploy the personal site as a Worker static-assets project instead of as a Pages
 project.
 
-The full site workflow now builds the Hakyll site into `_site`, then deploys the
+The full site workflow checks the plain files in `public/`, then deploys the
 assets with:
 
 ```sh
@@ -60,10 +62,10 @@ compatibility_date = "2026-07-02"
 workers_dev = false
 
 [assets]
-directory = "../_site"
+directory = "../public"
 ```
 
-The `../_site` path is required because this config file lives in the
+The `../public` path is required because this config file lives in the
 `cloudflare/` directory, and Wrangler resolves the assets path relative to the
 config file.
 
@@ -91,7 +93,7 @@ default Cloudflare Tunnel error.
   - Configures the demo fallback Worker.
 - `cloudflare/demo-router-worker.js`
   - Serves the live demo when available and a custom offline page when not.
-- `content/demo.md`
+- `public/demo/index.html`
   - Adds the static demo request/offline page to the personal site.
 
 ## Verification
@@ -99,16 +101,15 @@ default Cloudflare Tunnel error.
 Run locally:
 
 ```sh
-stack exec site rebuild
 npx wrangler deploy --config cloudflare/wrangler.site.toml --dry-run
-node --check cloudflare/demo-router-worker.js
+sh scripts/check-site.sh
 ```
 
 Expected results:
 
-- Wrangler reads files from `_site`.
+- Wrangler reads files from `public/`.
 - The Worker dry run exits successfully.
-- The demo router script passes Node syntax checking.
+- The public file layout and private-page separation checks pass.
 
 Check production:
 

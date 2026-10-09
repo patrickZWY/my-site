@@ -4,6 +4,11 @@ compatibility_date = "2026-07-02"
 workers_dev = false
 
 [assets]
-directory = "../_site"
+directory = "../public"
 binding = "ASSETS"
 run_worker_first = true
+
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+fallthrough = true

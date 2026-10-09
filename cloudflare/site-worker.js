@@ -1,4 +1,4 @@
-import { PRIVATE_STUDY_HTML } from "./private-study-page.generated.js";
+import PRIVATE_STUDY_HTML from "./private-study.html";
 
 const PRIVATE_PATH = "/rabbithole";
 const PRIVATE_ASSET_PREFIX = "/private-study-assets-v1-621b0c418a9e8c8add0633a3491d19be419716893c1fa7a844a28bf51369ca71/";
