@@ -14,7 +14,7 @@ do
 done
 
 for asset in css/site.css favicon.svg og-image.svg robots.txt sitemap.xml \
-  _headers poem.js study-nav.js skills/acl2-proof-with-ai/SKILL.md
+  _headers poem.js poem-sea.webp study-nav.js skills/acl2-proof-with-ai/SKILL.md
 do
   test -s "public/$asset"
 done

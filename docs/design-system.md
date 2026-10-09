@@ -8,8 +8,9 @@ the default direction for new pages.
 Use bare HTML and browser defaults: a white background, black text, default
 fonts, ordinary links, native inputs and buttons, and normal document flow.
 Do not add web fonts, decorative backgrounds, cards, custom typography, or a
-centred application shell. The poem retains its playback with plain browser
-type and controls, without a photograph or gradient.
+centred application shell. The poem is the exception: it uses the original sea
+photograph with a dark overlay and light text, retaining plain browser type and
+controls.
 
 `public/css/site.css` contains only the few rules needed for photograph sizing,
 overflow, and poem playback. The homepage introduces the author through

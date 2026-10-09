@@ -22,6 +22,25 @@ pre {
 }
 
 /* Keep the poem's playback, using the browser's default type and controls. */
+.poem-page {
+  min-height: 100vh;
+  margin: 0;
+  color: #f5f0e6;
+  background:
+    linear-gradient(180deg, rgba(2, 7, 10, 0.68), rgba(2, 8, 12, 0.2) 45%, rgba(2, 8, 12, 0.54)),
+    url("../poem-sea.webp") center / cover no-repeat #02080c;
+  background-attachment: fixed;
+  text-shadow: 0 1px 3px black;
+}
+
+.poem-page .site-main {
+  padding: 1rem;
+}
+
+.poem-page a {
+  color: inherit;
+}
+
 .poem-screening-header {
   text-align: center;
 }
