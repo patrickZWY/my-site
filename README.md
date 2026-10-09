@@ -14,7 +14,7 @@ Hakyll writes the generated site to `_site`.
 
 - `content/` contains Markdown pages.
 - `templates/` contains shared HTML templates.
-- `css/site.css` contains the visual system: black and white only, Azeret Mono.
+- `css/site.css` keeps browser defaults, with only functional layout and overflow rules.
 - `static/forth.js` is the Forth interpreter that is the site's only navigation
   (see `docs/design-system.md`, "Navigation: START").
 - `static/` contains files copied to the site root, including favicons, headers, and robots.txt.

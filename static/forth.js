@@ -73,7 +73,6 @@
     XOR: () => { need(2, "XOR"); push(pop() ^ pop()); },
     ABORT: () => { stack = []; },
   };
-  const DICT = ["+", "-", "*", "/", "MOD", "NEGATE", "ABS", "1+", "1-", "2*", "MIN", "MAX", "DUP", "DROP", "SWAP", "OVER", "ROT", "NIP", "TUCK", "DEPTH", "=", "<", ">", "AND", "OR", "XOR", ".", ".S", "ABORT", "GO", ":", ";"];
 
   function run(line) {
     const tokens = line.trim().split(/\s+/).filter(Boolean);
@@ -114,7 +113,7 @@
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const term = $("forth-term"), form = $("forth-form"), input = $("forth-input");
-  const dict = $("forth-dict"), stackEl = $("forth-stack"), outEl = $("forth-out"), wiring = $("forth-wiring"), status = $("forth-status");
+  const stackEl = $("forth-stack"), outEl = $("forth-out"), wiring = $("forth-wiring"), status = $("forth-status");
   const here = location.pathname.replace(/index\.html$/, "");
 
   const drawTerm = () => {
@@ -126,22 +125,11 @@
       ? stack.slice().reverse().map((v, i) => `<div class="cell ${i === 0 ? "tos" : ""}"><span>${v}</span><span class="lbl">${i === 0 ? "TOS" : "-" + i}</span></div>`).join("")
       : `<div class="empty lbl">&lt;0&gt; empty</div>`;
   };
-  const drawDict = () => {
-    dict.innerHTML = DICT.map((w) => `<button type="button" data-w="${esc(w)}">${esc(w)}</button>`).join("")
-      + Object.keys(userWords).map((w) => `<button type="button" class="user" data-w="${esc(w)}">${esc(w)}</button>`).join("");
-  };
   const drawWiring = () => {
     wiring.innerHTML = ADDR.filter((a) => !a.hidden).map((a) =>
       `<div class="${a.path === here ? "cur" : ""}"><b>${a.n}</b><span>${a.name}</span></div>`).join("");
     status.textContent = "";
   };
-
-  dict.addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-w]");
-    if (!b) return;
-    input.value = (input.value.trimEnd() + " " + b.dataset.w).trim() + " ";
-    input.focus();
-  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -151,7 +139,7 @@
     log.push({ in: line, out: r.out.join(" ") + (r.ok ? "  ok" : "") });
     input.value = "";
     save();
-    drawTerm(); drawStack(); drawDict();
+    drawTerm(); drawStack();
     if (r.go !== null) {
       const a = ADDR.find((x) => x.n === r.go);
       if (a) {
@@ -182,5 +170,5 @@
     }
     save();
   }
-  drawTerm(); drawStack(); drawDict(); drawWiring();
+  drawTerm(); drawStack(); drawWiring();
 })();

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$if(title)$$title$ | $endif$$siteTitle$</title>
   <meta name="description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light">
   <meta property="og:site_name" content="$siteTitle$">
   <meta property="og:title" content="$if(title)$$title$$else$$siteTitle$$endif$">
   <meta property="og:description" content="$if(description)$$description$$else$Personal website for Zheng Wangyuan (Patrick).$endif$">
@@ -14,9 +14,6 @@
   <meta property="og:image" content="$siteUrl$/og-image.svg">
   <link rel="canonical" href="$siteUrl$$canonicalPath$">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;600&display=swap">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="$if(bodyClass)$$bodyClass$$endif$">
@@ -40,7 +37,6 @@
             <input id="forth-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Forth input">
             <button class="lbl" type="submit">Enter &crarr;</button>
           </form>
-          <div class="forth-dict" id="forth-dict"></div>
         </div>
         <div class="forth-col">
           <span class="lbl">Data stack</span>
