@@ -4,6 +4,19 @@ body {
   background: white;
 }
 
+body:not(.schedule-page):not(.about) {
+  text-align: center;
+}
+
+body:not(.schedule-page):not(.about) :is(ul, ol) {
+  padding-inline-start: 0;
+  list-style-position: inside;
+}
+
+body:not(.schedule-page):not(.about) table {
+  margin-inline: auto;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -11,6 +24,7 @@ img {
 
 .photographs {
   max-width: 1000px;
+  margin-inline: auto;
 }
 
 .photographs figure {

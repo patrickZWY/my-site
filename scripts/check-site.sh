@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 for page in index.html 404.html about/index.html contact/index.html \
   hometown/index.html more-places/index.html projects/index.html \
   projects/tla-finance/index.html projects/price-manipulation/index.html \
-  projects/sps-verispec/index.html demo/index.html writing/index.html \
+  projects/sps-verispec/index.html demo/index.html \
   dependent-type-theory-reading-group/index.html \
   dependent-type-theory-reading-group/schedule/index.html \
   dependent-type-theory-reading-group/notes/index.html fun/index.html poem/index.html

@@ -7,14 +7,21 @@ the default direction for new pages.
 
 Use bare HTML and browser defaults: a white background, black text, default
 fonts, ordinary links, native inputs and buttons, and normal document flow.
+Centre text, photographs, lists, and tables across the site. About and the
+reading-group schedule retain their left-aligned browser layout.
 Do not add web fonts, decorative backgrounds, cards, custom typography, or a
 centred application shell. The poem is the exception: it uses the original sea
 photograph with a dark overlay and light text, retaining plain browser type and
 controls.
 
-`public/css/site.css` contains only the few rules needed for photograph sizing,
-overflow, and poem playback. The homepage introduces the author through
+`public/css/site.css` contains only the few rules needed for centring, photograph
+sizing, overflow, and poem playback. The homepage introduces the author through
 personal photographs and a short line in their own words.
+Photo pages contain no author names, including in titles and descriptions.
+Only About introduces the author's names using three left-aligned judgments
+as its largest, bold heading (the browser's default `h1`):
+`Γ ⊢ 郑汪元 : A`, `Δ ⊢ Zheng Wangyuan : A[γ]`, and
+`Θ ⊢ Patrick : A[γ][δ]`. Keep substitution rules and explanations implicit.
 
 ## Navigation
 
@@ -22,7 +29,7 @@ There is no header menu or interpreter. Navigation uses ordinary hyperlinks
 inside the page text, after the reader has reached the relevant introduction.
 
 The main reading sequence is Home → Hometown → More places → About → Projects
-→ Writing → Reading group → Fun → Contact. Each page ends with a sentence linking to the next
+→ Reading group → Fun → Contact. Each page ends with a sentence linking to the next
 section, except Fun, which ends with its poem and project links. Contact links
 back to the introduction. Do not add a section menu,
 next/previous toolbar, or navigation links above the introduction.
