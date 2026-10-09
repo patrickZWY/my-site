@@ -10,13 +10,6 @@ bodyClass: writing
 <h1 id="writing-title">Writing</h1>
 </section>
 
-<section class="section-block" aria-labelledby="published-title">
-<h2 id="published-title">Notes and skills</h2>
-<ul class="plain-list">
-<li><a href="/skills/acl2-proof-with-ai/SKILL.md" download="SKILL.md">Download ACL2s proofs with AI (SKILL.md)</a></li>
-</ul>
-</section>
-
 <section class="empty-state" aria-labelledby="next-title">
 <h2 id="next-title">Planned Topics</h2>
 <ul class="plain-list">
