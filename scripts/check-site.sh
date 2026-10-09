@@ -24,6 +24,7 @@ grep -q 'id="private-study-title"' cloudflare/private-study.html
 grep -q 'from "./private-study.html"' cloudflare/site-worker.js
 grep -q 'directory = "../public"' cloudflare/wrangler.site.toml
 grep -q 'not_found_handling = "404-page"' cloudflare/wrangler.site.toml
+grep -q 'assets_navigation_has_no_effect' cloudflare/wrangler.site.toml
 grep -q 'type = "Text"' cloudflare/wrangler.site.toml
 
 # Private HTML must never become a publicly served asset, at any location.

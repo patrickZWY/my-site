@@ -1,6 +1,8 @@
 name = "round-recipe-030e"
 main = "site-worker.js"
 compatibility_date = "2026-07-02"
+# Browser navigation to Rabbit Hole must reach its Worker gate.
+compatibility_flags = ["assets_navigation_has_no_effect"]
 workers_dev = false
 
 [assets]
