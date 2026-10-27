@@ -29,9 +29,10 @@ There is no header menu or interpreter. Navigation uses ordinary hyperlinks
 inside the page text, after the reader has reached the relevant introduction.
 
 The main reading sequence is Home → Hometown → More places → About → Projects
-→ Reading group → Fun → Contact. Each page ends with a sentence linking to the next
-section, except Fun, which ends with its poem and project links. Contact links
-back to the introduction. Do not add a section menu,
+→ Fun. About links to the reading group separately, and Projects is introduced as
+“some other things.” Projects ends with a sentence linking to Fun; the reading
+group page has no Fun link. Fun ends with its poem and project links. Contact
+links back to the introduction. Do not add a section menu,
 next/previous toolbar, or navigation links above the introduction.
 
 Projects and Archipelago are ordinary links to their GitHub repositories,
