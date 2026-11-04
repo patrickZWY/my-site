@@ -45,15 +45,5 @@ subpage, external, and email links remain ordinary links in the content.
 ## Multi-Topic Reading Pattern
 
 Long study pages use normal document flow, semantic headings, stable anchor
-IDs, and plain section links. The Rabbit Hole section navigation remains in
-`cloudflare/private-study.html`; it does not need a styled or sticky rail.
+IDs, and plain section links.
 Code blocks scroll horizontally when needed.
-
-## Security Note For Private Pages
-
-Private content must not be generated at a public route and hidden only by UI.
-The Rabbit Hole page lives in `cloudflare/private-study.html`, outside the
-`public/` directory. Wrangler imports it as a Worker-only text module; it is
-never uploaded as a public asset. Public
-requests to old internal private asset paths must return `404`. The gate page rendered by `cloudflare/site-worker.js` uses the same plain
-browser controls as the rest of the site.

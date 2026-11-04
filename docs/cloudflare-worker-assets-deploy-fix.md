@@ -113,7 +113,7 @@ Expected results:
 
 - Wrangler reads files from `public/`.
 - The Worker dry run exits successfully.
-- The public file layout and private-page separation checks pass.
+- The public page and asset checks pass.
 
 Check production:
 
