@@ -9,7 +9,6 @@ There is no site build step, package manager, framework, or Markdown renderer.
 - Images, scripts, favicons, headers, and robots.txt live alongside the pages in `public/`.
 - When adding a public page, add its canonical URL to `public/sitemap.xml` and link to it.
 - `cloudflare/private-study.html` is the directly editable Rabbit Hole page, outside public assets.
-- `study-materials/` retains the original study notes for reference; editing them does not change the website.
 - `docs/design-system.md` records the visual and navigation rules.
 
 Open `public/index.html` in a browser for a basic preview. For normal URL routing,
@@ -38,7 +37,9 @@ Required GitHub Actions secrets:
 - `CLOUDFLARE_WORKERS_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-The workflow in `.github/workflows/deploy.yml` checks the files and deploys `public/` directly using Wrangler:
+The workflow in `.github/workflows/deploy.yml` checks the files and deploys both
+the personal site and demo router on pushes to `main` or manual runs on `main`.
+Pull requests only run the checks. It deploys `public/` directly using Wrangler:
 
 ```sh
 npx wrangler deploy --config cloudflare/wrangler.site.toml
@@ -122,7 +123,7 @@ instead.
 Useful checks:
 
 ```sh
-curl --head https://zhengwangyuan-patrick.com/demo/
+curl --head https://zhengwangyuan-patrick.com/projects/
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://live-demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
@@ -131,8 +132,6 @@ curl --head https://archipelago-demo.zhengwangyuan-patrick.com/
 curl --head https://live-archipelago-demo.zhengwangyuan-patrick.com/
 ```
 
-- `/demo/` returning `404` means the personal site has not been redeployed since
-  `public/demo/index.html` was added.
 - `demo` returning Cloudflare `530` means it is still routed directly to a
   tunnel, or the Worker route is not deployed.
 - `live-demo` failing DNS means the tunnel hostname has not been created yet.
@@ -153,7 +152,7 @@ After the first deployment:
 
 ```sh
 curl --head https://zhengwangyuan-patrick.com/
-curl --head 'https://my-site.zhengwangyuan-patrick.com/demo/?x=1'
+curl --head 'https://my-site.zhengwangyuan-patrick.com/projects/?x=1'
 curl --head https://demo.zhengwangyuan-patrick.com/
 curl --head https://sps-demo.zhengwangyuan-patrick.com/
 curl --head https://archipelago-demo.zhengwangyuan-patrick.com/

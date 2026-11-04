@@ -4,6 +4,10 @@ Date: 2026-07-02
 
 Updated 2026-10-09: the site now deploys directly from `public/`, with no generator.
 
+Updated 2026-11-03: the unused personal-site `/demo/` page was removed and demo
+deployment was consolidated into `.github/workflows/deploy.yml`. References to
+the removed page and separate workflow below describe the original fix.
+
 ## Summary
 
 The personal site deployment was failing because the GitHub Actions workflow was
@@ -114,13 +118,13 @@ Expected results:
 Check production:
 
 ```sh
-curl --head https://zhengwangyuan-patrick.com/demo/
+curl --head https://zhengwangyuan-patrick.com/projects/
 curl --head https://demo.zhengwangyuan-patrick.com/
 ```
 
 Expected results:
 
-- `zhengwangyuan-patrick.com/demo/` returns the deployed static demo
-  request page after the personal site Worker deploy completes.
+- `zhengwangyuan-patrick.com/projects/` returns the deployed project links page
+  after the personal site Worker deploy completes.
 - `demo.zhengwangyuan-patrick.com` returns the live app when the local tunnel is
   running, or the custom `503 text/html` offline page when it is not.

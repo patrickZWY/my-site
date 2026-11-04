@@ -2,19 +2,17 @@
 set -eu
 cd "$(dirname "$0")/.."
 
-for page in index.html 404.html about/index.html contact/index.html \
+for page in index.html 404.html about/index.html \
   hometown/index.html more-places/index.html projects/index.html \
-  projects/tla-finance/index.html projects/price-manipulation/index.html \
-  projects/sps-verispec/index.html demo/index.html \
   dependent-type-theory-reading-group/index.html \
   dependent-type-theory-reading-group/schedule/index.html \
-  dependent-type-theory-reading-group/notes/index.html fun/index.html poem/index.html
+  fun/index.html poem/index.html
 do
   test -s "public/$page"
 done
 
 for asset in css/site.css favicon.svg og-image.svg robots.txt sitemap.xml \
-  _headers poem.js poem-sea.webp study-nav.js skills/acl2-proof-with-ai/SKILL.md
+  _headers poem.js poem-sea.webp study-nav.js
 do
   test -s "public/$asset"
 done

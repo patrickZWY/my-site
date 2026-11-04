@@ -31,13 +31,12 @@ inside the page text, after the reader has reached the relevant introduction.
 The main reading sequence is Home → Hometown → More places → About → Projects
 → Fun. About links to the reading group separately, and Projects is introduced as
 “some other things.” Projects ends with a sentence linking to Fun; the reading
-group page has no Fun link. Fun ends with its poem and project links. Contact
-links back to the introduction. Do not add a section menu,
+group page has no Fun link. Fun ends with its poem and project links.
+Do not add a section menu,
 next/previous toolbar, or navigation links above the introduction.
 
 Projects and Archipelago are ordinary links to their GitHub repositories,
-without descriptions or demo-request prompts. Existing project detail routes
-contain only a repository link and a sentence returning to Projects. The poem
+without descriptions or demo-request prompts. The poem
 links back to Fun, and its heading, controls, and poem are horizontally centred.
 Preserve the poem's whitespace; let it scroll horizontally on narrow screens.
 Section labels have no numeric addresses. Reading-group

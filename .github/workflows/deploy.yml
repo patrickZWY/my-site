@@ -32,7 +32,7 @@ jobs:
         run: sh scripts/check-site.sh
 
       - name: Deploy personal site Worker to Cloudflare
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
@@ -41,11 +41,11 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Skip personal site deploy until Worker token is configured
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_WORKERS_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_WORKERS_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
         run: echo "CLOUDFLARE_WORKERS_API_TOKEN or CLOUDFLARE_ACCOUNT_ID is missing; skipping personal site Worker deployment."
 
       - name: Deploy demo Worker to Cloudflare
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && env.HAS_CLOUDFLARE_WORKERS_API_TOKEN == 'true' && env.HAS_CLOUDFLARE_ACCOUNT_ID == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
@@ -54,5 +54,5 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Skip demo Worker deploy until Worker token is configured
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_WORKERS_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
-        run: echo "CLOUDFLARE_WORKERS_API_TOKEN is not configured; skipping demo Worker deployment."
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && (env.HAS_CLOUDFLARE_WORKERS_API_TOKEN != 'true' || env.HAS_CLOUDFLARE_ACCOUNT_ID != 'true')
+        run: echo "CLOUDFLARE_WORKERS_API_TOKEN or CLOUDFLARE_ACCOUNT_ID is missing; skipping demo Worker deployment."
